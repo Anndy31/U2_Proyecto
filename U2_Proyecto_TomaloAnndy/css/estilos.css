@@ -1,0 +1,636 @@
+
+/* ============================================================
+   BLOQUE 1: CONFIGURACIÓN GENERAL
+   Selector universal, body, fuente, fondo, color e interlineado.
+   ============================================================ */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #f0f4f8;
+    color: #222222;
+    line-height: 1.6;
+}
+
+/* ============================================================
+   BLOQUE 2: TÍTULOS, PÁRRAFOS Y ENLACES
+   Estilos para h1, h2, h3, p, a y a:hover.
+   ============================================================ */
+
+h1 {
+    margin: 0;
+    font-size: 34px;
+    text-align: center;
+}
+
+h2 {
+    color: #1a3c6e;
+    margin-top: 0;
+    border-bottom: 2px solid #d0dff5;
+    padding-bottom: 6px;
+}
+
+h2.centrado {
+    text-align: center;
+    color: #1a3c6e;
+}
+
+h3 {
+    color: #1a3c6e;
+}
+
+p {
+    font-size: 16px;
+    text-align: justify;
+}
+
+p.centrado {
+    text-align: center;
+}
+
+a {
+    color: #1a3c6e;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* ============================================================
+   BLOQUE 3: ELEMENTOS SEMÁNTICOS PRINCIPALES
+   Estilos para header, nav, main, section, article, aside y footer.
+   ============================================================ */
+
+header {
+    background-color: #1a3c6e;
+    color: white;
+    padding: 28px 16px;
+    text-align: center;
+}
+
+header p {
+    text-align: center;
+    margin-bottom: 0;
+    font-size: 0.95rem;
+    margin-top: 6px;
+}
+
+/* Logo circular del header */
+.header-logo {
+    width: 52px;
+    height: 52px;
+    background: #ffffff;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    vertical-align: middle;
+    margin-right: 12px;
+}
+
+.header-logo span {
+    color: #1a3c6e;
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+.header-titulo {
+    font-size: 1.8rem;
+    font-weight: bold;
+    vertical-align: middle;
+}
+
+/* Iconos de redes sociales en el header de login */
+.header-iconos {
+    margin-top: 12px;
+    font-size: 1.1rem;
+    opacity: 0.85;
+}
+
+.header-iconos i {
+    margin: 0 6px;
+}
+
+main {
+    width: 90%;
+    max-width: 1100px;
+    margin: 30px auto;
+}
+
+section {
+    margin-bottom: 30px;
+}
+
+article {
+    margin-bottom: 20px;
+}
+
+aside {
+    background-color: #e8edf5;
+    border-left: 4px solid #1a3c6e;
+    padding: 14px 18px;
+    width: 90%;
+    max-width: 1100px;
+    margin: 0 auto 20px auto;
+}
+
+aside h2 {
+    font-size: 18px;
+    color: #1a3c6e;
+}
+
+/* ============================================================
+   BLOQUE 4: MENÚ DE NAVEGACIÓN
+   Estilos para nav, nav a y nav a:hover.
+   ============================================================ */
+
+nav {
+    background-color: #1a3c6e;
+    padding: 12px;
+    text-align: center;
+}
+
+nav a {
+    background-color: rgba(255, 255, 255, 0.12);
+    color: white;
+    padding: 8px 14px;
+    border-radius: 6px;
+    font-weight: bold;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    margin: 4px;
+    display: inline-block;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+nav a:hover {
+    background-color: #ffffff;
+    color: #1a3c6e;
+    text-decoration: none;
+}
+
+nav a.nav-cerrar {
+    background-color: #c0392b;
+    border-color: #a93226;
+}
+
+nav a.nav-cerrar:hover {
+    background-color: #a93226;
+    color: white;
+}
+
+/* ============================================================
+   BLOQUE 5: TARJETAS / CONTENEDORES DE PÁGINA
+   Panel blanco central con bordes redondeados.
+   ============================================================ */
+
+.card {
+    background-color: white;
+    padding: 30px;
+    border: 1px solid #dce3ed;
+    border-radius: 10px;
+    margin: 30px auto;
+    width: 100%;
+    max-width: 960px;
+}
+
+.card-angosta {
+    max-width: 500px;
+}
+
+.card-login {
+    max-width: 430px;
+}
+
+/* ============================================================
+   BLOQUE 6: IMÁGENES Y MULTIMEDIA
+   Estilos para img, figure, figcaption, video, audio e iframe.
+   ============================================================ */
+
+img {
+    max-width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+}
+
+figure {
+    display: inline-block;
+    margin: 10px 0;
+    text-align: center;
+}
+
+figure img {
+    border: 2px solid #ccc;
+    border-radius: 4px;
+}
+
+figcaption {
+    font-size: 14px;
+    color: #555;
+    margin-top: 6px;
+}
+
+video {
+    border: 2px solid #ccc;
+    max-width: 100%;
+}
+
+audio {
+    margin-top: 8px;
+}
+
+iframe {
+    border: 2px solid #ccc;
+    max-width: 100%;
+}
+
+.img-centrada {
+    display: block;
+    margin: 15px auto;
+}
+
+/* ============================================================
+   BLOQUE 7: LISTAS
+   Estilos para ul, ol y li.
+   ============================================================ */
+
+ul {
+    padding-left: 22px;
+}
+
+ol {
+    padding-left: 22px;
+}
+
+li {
+    margin-bottom: 6px;
+}
+
+/* ============================================================
+   BLOQUE 8: FORMULARIOS
+   Estilos para form, label, input, textarea, select y button.
+   ============================================================ */
+
+form {
+    margin-top: 10px;
+}
+
+.form-grupo {
+    margin-bottom: 18px;
+}
+
+label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 6px;
+    color: #333;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="number"],
+input[type="date"] {
+    padding: 9px 12px;
+    border: 1px solid #aaa;
+    border-radius: 5px;
+    font-size: 15px;
+    width: 100%;
+    transition: border-color 0.2s;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus,
+input[type="number"]:focus,
+input[type="date"]:focus {
+    outline: none;
+    border-color: #1a3c6e;
+    box-shadow: 0 0 0 2px rgba(26, 60, 110, 0.15);
+}
+
+textarea {
+    padding: 9px 12px;
+    border: 1px solid #aaa;
+    border-radius: 5px;
+    font-size: 15px;
+    width: 100%;
+    resize: vertical;
+    transition: border-color 0.2s;
+}
+
+textarea:focus {
+    outline: none;
+    border-color: #1a3c6e;
+    box-shadow: 0 0 0 2px rgba(26, 60, 110, 0.15);
+}
+
+select {
+    padding: 9px 12px;
+    border: 1px solid #aaa;
+    border-radius: 5px;
+    font-size: 15px;
+    background-color: white;
+    width: 100%;
+    transition: border-color 0.2s;
+}
+
+select:focus {
+    outline: none;
+    border-color: #1a3c6e;
+    box-shadow: 0 0 0 2px rgba(26, 60, 110, 0.15);
+}
+
+/* Botones */
+button,
+.btn {
+    background-color: #1a3c6e;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 15px;
+    transition: background-color 0.2s;
+}
+
+button:hover,
+.btn:hover {
+    background-color: #122d54;
+}
+
+.btn-verde {
+    background-color: #1e7e34;
+}
+
+.btn-verde:hover {
+    background-color: #155724;
+}
+
+.btn-completo {
+    width: 100%;
+    font-size: 1rem;
+    padding: 11px;
+}
+
+.btn-grande {
+    padding: 12px 40px;
+    font-size: 1.05rem;
+    font-weight: bold;
+}
+
+/* Fila de botones */
+.fila-botones {
+    text-align: center;
+    margin-top: 20px;
+}
+
+/* Grupo de campos en fila (Flexbox) */
+.fila-campos {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin-bottom: 18px;
+}
+
+.fila-campos .form-grupo {
+    flex: 1;
+    min-width: 160px;
+    margin-bottom: 0;
+}
+
+/* ============================================================
+   BLOQUE 9: TABLAS
+   Estilos para table, thead, tbody, tr, th y td.
+   ============================================================ */
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 12px;
+    font-size: 0.97rem;
+}
+
+table caption {
+    font-weight: bold;
+    margin-bottom: 8px;
+    color: #1a3c6e;
+}
+
+thead {
+    background-color: #1a3c6e;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #e8edf5;
+}
+
+tbody tr:hover {
+    background-color: #d0dff5;
+}
+
+th {
+    background-color: #1a3c6e;
+    color: white;
+    padding: 10px 14px;
+    text-align: left;
+}
+
+th.centrado,
+td.centrado {
+    text-align: center;
+}
+
+td {
+    padding: 10px 14px;
+    border-bottom: 1px solid #dce3ed;
+}
+
+/* Estado aprobado / reprobado */
+.estado-aprobado {
+    color: #155724;
+    font-weight: bold;
+}
+
+.estado-reprobado {
+    color: #721c24;
+    font-weight: bold;
+}
+
+/* Barra de progreso */
+
+    
+.barra-Verde{
+
+accent-color:green
+;
+}
+
+.barra-Rojo{
+
+accent-color:red;
+}
+
+.barra-Azul{
+
+accent-color:blue;
+
+}
+
+
+
+/* ============================================================
+   BLOQUE 10: COMPONENTES ESPECIALES
+   Separadores, bloques de info, details/summary.
+   ============================================================ */
+
+hr {
+    border: none;
+    border-top: 1px solid #dce3ed;
+    margin: 18px 0;
+}
+
+/* Bloque de estadísticas / aside */
+.bloque-stats {
+    background-color: #e8edf5;
+    border-left: 4px solid #1a3c6e;
+    padding: 20px 24px;
+    border-radius: 6px;
+    margin-top: 25px;
+}
+
+.bloque-stats h3 {
+    margin-top: 0;
+    color: #1a3c6e;
+}
+
+/* Details / Summary (acordeón) */
+details {
+    margin-bottom: 12px;
+    border: 1px solid #dce3ed;
+    border-radius: 6px;
+    padding: 10px 16px;
+    background-color: #f8fafd;
+}
+
+details[open] {
+    background-color: #eef2f9;
+}
+
+summary {
+    font-weight: bold;
+    cursor: pointer;
+    color: #1a3c6e;
+    list-style: none;
+    padding: 2px 0;
+}
+
+summary::-webkit-details-marker {
+    display: none;
+}
+
+summary::before {
+    content: "▶ ";
+    font-size: 0.75rem;
+}
+
+details[open] summary::before {
+    content: "▼ ";
+}
+
+details p {
+    margin: 10px 0 0 0;
+    font-size: 0.95rem;
+    color: #444;
+}
+
+/* Subtítulo / info de página */
+.subtitulo {
+    text-align: center;
+    font-size: 1rem;
+    color: #555;
+    margin-top: -8px;
+    margin-bottom: 20px;
+}
+
+/* ============================================================
+   BLOQUE 11: PIE DE PÁGINA
+   Estilos para footer, footer p y footer address.
+   ============================================================ */
+
+footer {
+    background-color: #1a3c6e;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    margin-top: 30px;
+}
+
+footer p {
+    text-align: center;
+    margin: 5px 0;
+    font-size: 0.92rem;
+}
+
+footer address {
+    font-style: normal;
+}
+
+/* ============================================================
+   BLOQUE 12: RESPONSIVE DESIGN
+   Media queries para móviles y tabletas.
+   ============================================================ */
+
+@media (max-width: 768px) {
+    .card,
+    .card-angosta,
+    .card-login {
+        width: 95%;
+        padding: 20px 16px;
+    }
+
+    nav a {
+        margin: 3px 2px;
+        padding: 7px 10px;
+        font-size: 0.88rem;
+    }
+
+    .fila-campos {
+        flex-direction: column;
+    }
+
+    table {
+        font-size: 0.85rem;
+    }
+
+    th, td {
+        padding: 7px 8px;
+    }
+
+    h2 {
+        font-size: 1.2rem;
+    }
+
+    .header-titulo {
+        font-size: 1.4rem;
+    }
+}
+
+@media (max-width: 480px) {
+    nav {
+        padding: 8px 4px;
+    }
+
+    nav a {
+        font-size: 0.8rem;
+        padding: 6px 8px;
+    }
+
+    .card {
+        padding: 14px 10px;
+    }
+}
