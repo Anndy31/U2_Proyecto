@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro | UniNotas</title>
+    <link rel="icon" href="Barra/services_application_3009.ico">
+    <link rel="stylesheet" href="css/estilos.css">
+       <link rel="stylesheet" href="css/registro.css">
+</head>
+
+<body>
+
+    <header>
+        <div class="header-logo">
+            <span>UN</span>
+        </div>
+        <span class="header-titulo">UniNotas</span>
+        <p>Sistema de Gestión de Notas Universitarias</p>
+    </header>
+
+    <main>
+        <div class="card card-angosta">
+
+            <h2 class="centrado">Crear Cuenta</h2>
+            <p class="centrado subtitulo">Completa todos los campos para registrarte en el sistema</p>
+            <hr>
+
+            <form action="principal.html" method="post">
+
+                <div class="form-grupo">
+                    <label for="nombres">Nombres</label>
+                    <input type="text" id="nombres" name="nombres"
+                           placeholder="Ej: Juan Carlos" required />
+                </div>
+
+                <div class="form-grupo">
+                    <label for="apellidos">Apellidos</label>
+                    <input type="text" id="apellidos" name="apellidos"
+                           placeholder="Ej: Pérez Torres" required />
+                </div>
+
+                <div class="form-grupo">
+                    <label for="cedula">Cédula de Identidad</label>
+                    <input type="text" id="cedula" name="cedula"
+                           placeholder="Ej: 1712345678" maxlength="10" required />
+                </div>
+
+                <div class="form-grupo">
+                    <label for="fecha_nacimiento">Fecha de Nacimiento</label>
+                    <input type="date" id="fecha_nacimiento" name="fecha_nacimiento" required />
+                </div>
+
+                <div class="form-grupo">
+                    <label for="genero">Género</label>
+                    <select id="genero" name="genero" required>
+                        <option value="">-- Selecciona una opción --</option>
+                        <option value="masculino">Masculino</option>
+                        <option value="femenino">Femenino</option>
+                        <option value="otro">Prefiero no decir</option>
+                    </select>
+                </div>
+
+                <div class="form-grupo">
+                    <label for="semestre">Semestre</label>
+                    <select id="semestre" name="semestre" required>
+                        <option value="">-- Selecciona tu semestre --</option>
+                        <option value="1">1er Semestre</option>
+                        <option value="2">2do Semestre</option>
+                        <option value="3">3er Semestre</option>
+                        <option value="4">4to Semestre</option>
+                        <option value="5">5to Semestre</option>
+                        <option value="6">6to Semestre</option>
+                        <option value="7">7mo Semestre</option>
+                        <option value="8">8vo Semestre</option>
+                    </select>
+                </div>
+
+                <div class="form-grupo">
+                    <label for="correo_registro">Correo Institucional</label>
+                    <input type="email" id="correo_registro" name="correo_registro"
+                           placeholder="correo@universidad.edu.ec" required />
+                </div>
+
+                <div class="form-grupo">
+                    <label for="contrasena_registro">Contraseña</label>
+                    <input type="password" id="contrasena_registro" name="contrasena_registro"
+                           placeholder="Entre 8 y 16 caracteres"
+                           minlength="8" maxlength="16" required />
+                </div>
+
+                <div class="fila-botones">
+                    <button type="submit" class="btn-completo btn-verde">
+                        Registrarme
+                    </button>
+                </div>
+
+            </form>
+
+            <p class="centrado" style="margin-top:20px;">
+                ¿Ya tienes cuenta? <a href="index.html">Inicia sesión aquí</a>
+            </p>
+
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Anndy Tomalo &mdash; Sistema de Gestión de Notas Universitarias</p>
+    </footer>
+
+</body>
+</html>

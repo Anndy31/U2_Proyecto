@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio de Sesión | UniNotas</title>
+    <link rel="icon" href="Barra/iconfinder-document03-1622833_121957.ico">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="css/estilos.css">
+    <link rel="stylesheet" href="css/index.css">
+</head>
+
+<body>
+
+    <header>
+        <div class="header-logo">
+            <span>UN</span>
+        </div>
+        <span class="header-titulo">UniNotas</span>
+        <p>Sistema de Gestión de Notas Universitarias</p>
+        <div class="header-iconos">
+            <i class="fa-solid fa-house"></i>
+            <i class="fa-solid fa-user"></i>
+            <i class="fa-solid fa-envelope"></i>
+            <i class="fa-solid fa-phone"></i>
+            <i class="fa-solid fa-cart-shopping"></i>
+            <i class="fa-solid fa-heart"></i>
+            <i class="fa-brands fa-facebook"></i>
+            <i class="fa-brands fa-instagram"></i>
+        </div>
+    </header>
+
+    <main>
+        <div class="card card-login">
+
+            <h2 class="centrado">Inicio de Sesión</h2>
+            <p class="centrado subtitulo">Únicamente se debe ingresar con credenciales universitarias</p>
+            <hr>
+
+            <form action="principal.html" method="post">
+
+                <div class="form-grupo">
+                    <label for="correo">Correo electrónico</label>
+                    <input type="email" id="correo" name="correo"
+                           placeholder="correo@universidad.edu.ec" required />
+                </div>
+
+                <div class="form-grupo">
+                    <label for="contrasena">Contraseña</label>
+                    <input type="password" id="contrasena" name="contrasena"
+                           placeholder="Entre 8 y 16 caracteres"
+                           minlength="8" maxlength="16" required />
+                </div>
+
+                <div class="fila-botones">
+                    <button type="submit" class="btn-completo">
+                        Ingresar al Sistema
+                    </button>
+                </div>
+
+            </form>
+
+            <p class="centrado" style="margin-top:20px;">
+                ¿No tienes una cuenta? <a href="registro.html">Regístrate aquí</a>
+            </p>
+
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Anndy Tomalo &mdash; Sistema de Gestión de Notas Universitarias</p>
+    </footer>
+
+</body>
+</html>

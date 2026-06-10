@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto | UniNotas</title>
+    <link rel="icon" href="Barra/-contact-phone_90586.ico">
+    <link rel="stylesheet" href="css/estilos.css">
+    <link rel="stylesheet" href="css/contacto.css">
+</head>
+
+<body>
+
+    <header>
+        <div class="header-logo">
+            <span>UN</span>
+        </div>
+        <span class="header-titulo">UniNotas</span>
+        <p>Sistema de Gestión de Notas Universitarias</p>
+    </header>
+
+    <nav>
+        <a href="principal.html">Inicio</a>
+        <a href="docente.html">Panel Docente</a>
+        <a href="reportes.html">Reportes</a>
+        <a href="servicios.html">Servicios</a>
+        <a href="acerca.html">Acerca de</a>
+        <a href="contacto.html">Contacto</a>
+        <a href="index.html" class="nav-cerrar">Cerrar Sesión</a>
+    </nav>
+
+    <main>
+        <div class="card card-angosta">
+
+            <section id="formulario-contacto-sec">
+                <h2 class="centrado">Contáctanos</h2>
+                <p class="centrado">
+                    Si tienes dudas o inconvenientes académicos, puedes comunicarte con nosotros
+                    mediante el siguiente formulario.
+                </p>
+                <div style="text-align:center;">
+                    <img src="img/telf.png" alt="Contacto UniNotas" width="260" class="img-centrada">
+                </div>
+
+                <div id="redes-sociales">
+                    <a href="#" class="red-social">Facebook</a>
+                    <a href="#" class="red-social">Instagram</a>
+                    <a href="#" class="red-social">WhatsApp</a>
+                </div>
+            </section>
+
+            <section>
+                <form action="#" method="get" class="formulario-contacto">
+
+                    <div class="form-grupo">
+                        <label for="nombre">Nombre Completo</label>
+                        <input type="text" id="nombre" name="nombre"
+                               placeholder="Ingrese su nombre completo" required />
+                        <p class="nota">Ingrese su nombre tal como aparece en su cédula.</p>
+                    </div>
+
+                    <div class="form-grupo">
+                        <label for="correo">Correo Electrónico</label>
+                        <input type="email" id="correo" name="correo"
+                               placeholder="correo@ejemplo.com" required />
+                    </div>
+
+                    <div class="form-grupo">
+                        <label for="asunto">Asunto</label>
+                        <select id="asunto" name="asunto" required>
+                            <option value="">-- Selecciona el motivo --</option>
+                            <option value="notas">Consulta sobre calificaciones</option>
+                            <option value="acceso">Problemas de acceso al sistema</option>
+                            <option value="reporte">Solicitud de boletín de notas</option>
+                            <option value="otro">Otro</option>
+                        </select>
+                    </div>
+
+                    <div class="form-grupo">
+                        <label for="mensaje">Mensaje</label>
+                        <textarea id="mensaje" name="mensaje" rows="5"
+                                  placeholder="Escriba su mensaje aquí..." required></textarea>
+                    </div>
+
+                    <div class="fila-botones">
+                        <button type="submit" class="btn-enviar">
+                            Enviar Mensaje
+                        </button>
+                    </div>
+
+                </form>
+
+                <p class="ayuda">
+                    Su mensaje será respondido en un plazo máximo de 48 horas hábiles.
+                    Recuerde verificar su bandeja de correo no deseado.
+                </p>
+            </section>
+
+            <hr>
+
+            <section id="datos-contacto">
+                <h3>Datos de Contacto Institucional</h3>
+                <ul>
+                    <li><strong>Correo:</strong> soporte@uninotas.edu.ec</li>
+                    <li><strong>Teléfono:</strong> (02) 398-9400</li>
+                    <li><strong>Dirección:</strong> Av. General Rumiñahui s/n, Sangolquí, Ecuador</li>
+                    <li>
+                        <a href="https://www.google.com/maps?q=Av.+General+Rumiñahui+s/n,+Sangolquí,+Ecuador"
+                           target="_blank">Ver ubicación en Google Maps</a>
+                    </li>
+                    <li><strong>Horario de atención:</strong> Lunes a Viernes, 08:00 – 17:00</li>
+                </ul>
+            </section>
+
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Anndy Tomalo &mdash; Sistema de Gestión de Notas Universitarias</p>
+    </footer>
+
+</body>
+</html>

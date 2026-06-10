@@ -1,0 +1,147 @@
+/* ============================================================
+   contacto.css — Estilos específicos de la página de contacto
+   Complementa general.css sin modificar estilos globales.
+   ============================================================ */
+
+/* ============================================================
+   BLOQUE 1: DATOS DE CONTACTO INSTITUCIONAL
+   Estilo de la sección de información de contacto.
+   ============================================================ */
+
+#datos-contacto {
+    background-color: #f0f4fc;
+    border-left: 6px solid #1a3c6e;
+    border-radius: 0 8px 8px 0;
+    padding: 18px 24px;
+    margin-top: 10px;
+}
+
+#datos-contacto h3 {
+    color: #1a3c6e;
+    margin-top: 0;
+    font-size: 1.1rem;
+}
+
+#datos-contacto ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+#datos-contacto ul li {
+    padding: 6px 0;
+    border-bottom: 1px solid #d0dff5;
+    font-size: 0.97rem;
+}
+
+#datos-contacto ul li:last-child {
+    border-bottom: none;
+}
+
+#datos-contacto a {
+    color: #1a3c6e;
+    font-weight: bold;
+}
+
+#datos-contacto a:hover {
+    color: #0d2847;
+    text-decoration: underline;
+}
+
+/* ============================================================
+   BLOQUE 2: REDES SOCIALES
+   Íconos y enlaces de redes sociales del formulario de contacto.
+   ============================================================ */
+
+#redes-sociales {
+    display: flex;
+    gap: 14px;
+    justify-content: center;
+    margin: 18px 0 10px;
+    flex-wrap: wrap;
+}
+
+.red-social {
+    background-color: #1a3c6e;
+    color: white;
+    padding: 8px 18px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: bold;
+    text-decoration: none;
+    transition: background-color 0.2s, transform 0.15s;
+}
+
+.red-social:hover {
+    background-color: #122d54;
+    transform: translateY(-2px);
+    text-decoration: none;
+    color: white;
+}
+
+/* ============================================================
+   BLOQUE 3: FORMULARIO DE CONTACTO
+   Estilo del formulario y botón de envío propios de esta página.
+   ============================================================ */
+
+.formulario-contacto {
+    background-color: #f8faff;
+    border: 1px solid #d0dff5;
+    border-radius: 10px;
+    padding: 24px 28px;
+    margin-top: 14px;
+}
+
+.formulario-contacto label {
+    color: #1a3c6e;
+    font-size: 0.95rem;
+}
+
+.formulario-contacto textarea {
+    background-color: #ffffff;
+    border-color: #b0c4de;
+}
+
+.formulario-contacto textarea:focus {
+    border-color: #1a3c6e;
+    background-color: #fff;
+}
+
+.btn-enviar {
+    background-color: #1e7e34;
+    color: white;
+    border: none;
+    padding: 11px 28px;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.15s;
+    width: 100%;
+}
+
+.btn-enviar:hover {
+    background-color: #155724;
+    transform: translateY(-1px);
+}
+
+/* ============================================================
+   BLOQUE 4: MENSAJES DE AYUDA
+   Texto de ayuda bajo campos del formulario.
+   ============================================================ */
+
+.nota {
+    font-size: 0.82rem;
+    color: #666;
+    margin-top: 4px;
+    font-style: italic;
+}
+
+p.ayuda {
+    font-size: 0.88rem;
+    color: #555;
+    background-color: #eef4ff;
+    border-left: 4px solid #1a3c6e;
+    padding: 8px 12px;
+    border-radius: 0 6px 6px 0;
+    margin-top: 18px;
+}

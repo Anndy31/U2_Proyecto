@@ -1,0 +1,84 @@
+/* ============================================================
+   acerca.css — Estilos específicos de la página "Acerca de"
+   Complementa general.css sin modificar estilos globales.
+   ============================================================ */
+
+/* ============================================================
+   BLOQUE 1: PRESENTACIÓN / QUÉ ES UNINOTAS
+   Sección de descripción del sistema.
+   ============================================================ */
+
+#que-es {
+    background: linear-gradient(135deg, #e8edf5, #d0dff5);
+    border-radius: 10px;
+    padding: 24px 28px;
+    text-align: center;
+    margin-bottom: 26px;
+    border-top: 4px solid #1a3c6e;
+}
+
+#que-es h2 {
+    border-bottom: none;
+    color: #1a3c6e;
+}
+
+/* ============================================================
+   BLOQUE 2: MISIÓN Y VISIÓN
+   Bloques de misión y visión con estilo de tarjeta.
+   ============================================================ */
+
+#mision,
+#vision {
+    background-color: #f8faff;
+    border-left: 5px solid #1a3c6e;
+    border-radius: 0 10px 10px 0;
+    padding: 18px 24px;
+    margin-bottom: 22px;
+}
+
+#mision h2,
+#vision h2 {
+    color: #1a3c6e;
+    border-bottom: none;
+    font-size: 1.2rem;
+}
+
+/* ============================================================
+   BLOQUE 3: PREGUNTAS DESPLEGABLES / OBJETIVOS
+   Estilos diferenciados para los details/summary de esta página.
+   ============================================================ */
+
+#objetivos {
+    margin-top: 10px;
+}
+
+#objetivos h2 {
+    color: #1a3c6e;
+}
+
+#objetivos details {
+    border-left: 4px solid #1a3c6e;
+    background-color: #f4f7ff;
+    transition: background-color 0.2s;
+}
+
+#objetivos details[open] {
+    background-color: #e8edf5;
+    border-left-color: #e6a817;
+}
+
+#objetivos summary {
+    font-size: 1rem;
+    color: #1a3c6e;
+    padding: 4px 0;
+}
+
+#objetivos details[open] summary {
+    color: #c07800;
+}
+
+#objetivos details p {
+    color: #333;
+    font-size: 0.95rem;
+    line-height: 1.6;
+}

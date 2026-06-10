@@ -1,0 +1,65 @@
+/* ============================================================
+   registro.css — Estilos específicos de la página de registro
+   Complementa general.css sin modificar estilos globales.
+   ============================================================ */
+
+/* ============================================================
+   BLOQUE 1: TARJETA DE REGISTRO
+   Contenedor principal del formulario de nueva cuenta.
+   ============================================================ */
+
+#pagina-registro .card-angosta {
+    border-top: 5px solid #1e7e34;
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.12);
+}
+
+#pagina-registro h2 {
+    color: #1e7e34;
+}
+
+/* ============================================================
+   BLOQUE 2: FORMULARIO DE REGISTRO
+   Campos y botón específicos de la pantalla de registro.
+   ============================================================ */
+
+#pagina-registro input,
+#pagina-registro select {
+    background-color: #f7fff9;
+    border-color: #b0d4bb;
+}
+
+#pagina-registro input:focus,
+#pagina-registro select:focus {
+    border-color: #1e7e34;
+    box-shadow: 0 0 0 3px rgba(30, 126, 52, 0.15);
+    background-color: #ffffff;
+}
+
+#pagina-registro .btn-completo.btn-verde {
+    font-size: 1.05rem;
+    font-weight: bold;
+    letter-spacing: 0.4px;
+    padding: 13px;
+    border-radius: 8px;
+    transition: background-color 0.2s, transform 0.15s;
+}
+
+#pagina-registro .btn-completo.btn-verde:hover {
+    background-color: #155724;
+    transform: translateY(-1px);
+}
+
+/* ============================================================
+   BLOQUE 3: ENLACE DE INICIO DE SESIÓN
+   Estilo del enlace al login desde la página de registro.
+   ============================================================ */
+
+#pagina-registro a {
+    color: #1e7e34;
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+#pagina-registro a:hover {
+    color: #155724;
+}

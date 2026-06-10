@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel Docente | UniNotas</title>
+    <link rel="icon" href="Barra/lecturer_icon-icons.com_64960.ico">
+    <link rel="stylesheet" href="css/estilos.css">
+    <link rel="stylesheet" href="css/docente.css">
+</head>
+
+<body>
+
+    <header>
+        <div class="header-logo">
+            <span>UN</span>
+        </div>
+        <span class="header-titulo">UniNotas</span>
+        <p>Sistema de Gestión de Notas Universitarias</p>
+    </header>
+
+    <nav>
+        <a href="principal.html">Inicio</a>
+        <a href="docente.html">Panel Docente</a>
+        <a href="reportes.html">Reportes</a>
+        <a href="servicios.html">Servicios</a>
+        <a href="acerca.html">Acerca de</a>
+        <a href="contacto.html">Contacto</a>
+        <a href="index.html" class="nav-cerrar">Cerrar Sesión</a>
+    </nav>
+
+    <main>
+        <div class="card">
+
+            <section>
+                <h2 class="centrado">Panel Docente — Ingreso de Calificaciones</h2>
+                <p class="centrado subtitulo">
+                    Bienvenido, <strong>Ing. Luis Beltran</strong> &nbsp;|&nbsp;
+                    Materia: <strong>23758 Estructura de Datos</strong> &nbsp;|&nbsp;
+                    Período: <strong>2026-1</strong>
+                </p>
+            </section>
+
+            <section>
+                <h3>Seleccionar Parcial</h3>
+                <form action="#" method="get">
+                    <div class="form-grupo" style="max-width:320px;">
+                        <label for="parcial">Parcial a registrar:</label>
+                        <select id="parcial" name="parcial">
+                            <option value="1">Parcial 1</option>
+                            <option value="2">Parcial 2</option>
+                            <option value="3">Parcial 3 / Examen Final</option>
+                        </select>
+                    </div>
+                </form>
+            </section>
+
+            <section>
+                <h3>Lista de Estudiantes Matriculados</h3>
+                <p class="subtitulo" style="text-align:left;">
+                    Ingrese las notas de cada estudiante. El promedio parcial se calcula automáticamente.
+                    Escala de calificación: 0 a 10.
+                </p>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>N°</th>
+                            <th>Estudiante</th>
+                            <th class="centrado">Tarea</th>
+                            <th class="centrado">Proyectos</th>
+                            <th class="centrado">Examen</th>
+                            <th class="centrado">Promedio Parcial</th>
+                            <th class="centrado">Estado</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="centrado">1</td>
+                            <td>Tomalo Anndy</td>
+                            <td class="centrado">8.5</td>
+                            <td class="centrado">9.5</td>
+                            <td class="centrado">9.0</td>
+                            <td class="centrado">
+                                <strong>9.0</strong><br>
+
+                                <progress class="barra-Verde" max="100" value="90"></progress>
+                            </td>
+
+                            <td class="centrado estado-aprobado">Aprobado</td>
+                        </tr>
+                        <tr>
+                            <td class="centrado">2</td>
+                            <td>Paredes Estefanía</td>
+                            <td class="centrado">—</td>
+                            <td class="centrado">9.5</td>
+                            <td class="centrado">7.0</td>
+                            <td class="centrado">
+                                <strong>8.25</strong><br>
+                                <progress class="barra-Verde" max="100" value="85"></progress>
+                            </td>
+                            <td class="centrado estado-aprobado">Aprobado</td>
+                        </tr>
+                        <tr>
+                            <td class="centrado">3</td>
+                            <td>García Luis</td>
+                            <td class="centrado">5.99</td>
+                            <td class="centrado">8.5</td>
+                            <td class="centrado">9.0</td>
+                            <td class="centrado">
+                                <strong>7.83</strong><br>
+                                <progress class="barra-Azul" max="100" value="70"></progress>
+                            </td>
+                            <td class="centrado estado-aprobado">Aprobado</td>
+                        </tr>
+                        <tr>
+                            <td class="centrado">4</td>
+                            <td>Mora Valeria</td>
+                            <td class="centrado">4.0</td>
+                            <td class="centrado">5.5</td>
+                            <td class="centrado">5.0</td>
+                            <td class="centrado">
+                                <strong>4.83</strong><br>
+                                <progress class="barra-Rojo" max="100" value="40"></progress>
+                            </td>
+                            <td class="centrado estado-reprobado">Reprobado</td>
+                        </tr>
+                        <tr>
+                            <td class="centrado">5</td>
+                            <td>Vega Carlos</td>
+                            <td class="centrado">7.0</td>
+                            <td class="centrado">8.0</td>
+                            <td class="centrado">9.0</td>
+                            <td class="centrado">
+                                <strong>8.0</strong><br>
+                                <progress class="barra-Azul" max="100" value="80"></progress>
+                            </td>
+                            <td class="centrado estado-aprobado">Aprobado</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <section>
+                <h3>Registrar Nueva Calificación</h3>
+                <form action="#" method="get">
+
+                    <div class="fila-campos">
+
+                        <div class="form-grupo">
+                            <label for="estudiante_sel">Estudiante</label>
+                            <select id="estudiante_sel" name="estudiante_sel" required>
+                                <option value="">-- Seleccionar --</option>
+                                <option value="tomalo">Tomalo Anndy</option>
+                                <option value="paredes">Paredes Estefanía</option>
+                                <option value="garcia">García Luis</option>
+                                <option value="mora">Mora Valeria</option>
+                                <option value="vega">Vega Carlos</option>
+                            </select>
+                        </div>
+
+                        <div class="form-grupo">
+                            <label for="nota_tarea">Tarea (0-10)</label>
+                            <input type="number" id="nota_tarea" name="nota_tarea" min="0" max="10" step="0.1"
+                                placeholder="Ej: 8.5" required />
+                        </div>
+
+                        <div class="form-grupo">
+                            <label for="nota_proyecto">Proyectos (0-10)</label>
+                            <input type="number" id="nota_proyecto" name="nota_proyecto" min="0" max="10" step="0.1"
+                                placeholder="Ej: 9.5" required />
+                        </div>
+
+                        <div class="form-grupo">
+                            <label for="nota_examen">Examen (0-10)</label>
+                            <input type="number" id="nota_examen" name="nota_examen" min="0" max="10" step="0.1"
+                                placeholder="Ej: 9.0" required />
+                        </div>
+
+                    </div>
+
+                    <div class="fila-botones">
+                        <button type="submit" class="btn-verde btn-grande">
+                            Guardar Calificaciones
+                        </button>
+                    </div>
+
+                </form>
+            </section>
+
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Anndy Tomalo &mdash; Sistema de Gestión de Notas Universitarias</p>
+    </footer>
+
+</body>
+
+</html>

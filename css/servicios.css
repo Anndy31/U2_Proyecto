@@ -1,0 +1,82 @@
+/* ============================================================
+   servicios.css — Estilos específicos de la página de servicios
+   Complementa general.css sin modificar estilos globales.
+   ============================================================ */
+
+/* ============================================================
+   BLOQUE 1: PRESENTACIÓN DE SERVICIOS
+   Encabezado introductorio de la sección de servicios.
+   ============================================================ */
+
+#presentacion-servicios {
+    background: linear-gradient(135deg, #e8edf5, #d0dff5);
+    border-radius: 10px;
+    padding: 24px 28px;
+    text-align: center;
+    margin-bottom: 24px;
+}
+
+#presentacion-servicios h2 {
+    border-bottom: none;
+    color: #1a3c6e;
+    font-size: 1.5rem;
+}
+
+/* ============================================================
+   BLOQUE 2: TARJETAS DE SERVICIOS DISPONIBLES
+   Cada servicio presentado como tarjeta reutilizable.
+   ============================================================ */
+
+.tarjeta {
+    border: 1px solid #d0dff5;
+    border-radius: 10px;
+    padding: 18px 22px;
+    background-color: #f8faff;
+    margin-bottom: 14px;
+    transition: box-shadow 0.2s, transform 0.15s;
+}
+
+.tarjeta:hover {
+    box-shadow: 0 4px 16px rgba(26, 60, 110, 0.13);
+    transform: translateY(-2px);
+}
+
+.tarjeta h3 {
+    margin-top: 0;
+    color: #1a3c6e;
+    font-size: 1.05rem;
+}
+
+.tarjeta p {
+    color: #444;
+    font-size: 0.95rem;
+    margin-bottom: 0;
+}
+
+/* ============================================================
+   BLOQUE 3: CALENDARIO ACADÉMICO
+   Estilos específicos para la tabla del calendario.
+   ============================================================ */
+
+#calendario {
+    margin-top: 10px;
+}
+
+#calendario h2 {
+    color: #1a3c6e;
+}
+
+#calendario table {
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(26, 60, 110, 0.09);
+}
+
+#calendario tbody tr:hover {
+    background-color: #d0dff5;
+}
+
+#calendario td:first-child {
+    font-weight: bold;
+    color: #1a3c6e;
+}

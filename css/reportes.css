@@ -1,0 +1,90 @@
+/* ============================================================
+   reportes.css — Estilos específicos de la página de reportes
+   Complementa general.css sin modificar estilos globales.
+   ============================================================ */
+
+/* ============================================================
+   BLOQUE 1: FORMULARIO DE FILTROS DEL REPORTE
+   Controles de selección para filtrar el reporte académico.
+   ============================================================ */
+
+#filtros-reporte {
+    background-color: #f0f4fc;
+    border: 1px solid #d0dff5;
+    border-radius: 10px;
+    padding: 20px 24px;
+    margin-bottom: 24px;
+}
+
+#filtros-reporte h3 {
+    margin-top: 0;
+    color: #1a3c6e;
+    border-bottom: 2px solid #d0dff5;
+    padding-bottom: 6px;
+}
+
+/* ============================================================
+   BLOQUE 2: TABLA DE VISTA PREVIA DEL REPORTE
+   Estilo diferenciado para la tabla de resultados generada.
+   ============================================================ */
+
+#vista-previa {
+    margin-top: 10px;
+}
+
+#vista-previa h3 {
+    color: #1a3c6e;
+    border-bottom: 2px solid #d0dff5;
+    padding-bottom: 6px;
+}
+
+#vista-previa table {
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(26, 60, 110, 0.11);
+}
+
+/* Enlace activo simulado — fila seleccionada */
+#vista-previa tbody tr.fila-activa {
+    background-color: #d0dff5;
+    font-weight: bold;
+}
+
+#vista-previa tbody tr.fila-activa:hover {
+    background-color: #b8cff0;
+}
+
+/* ============================================================
+   BLOQUE 3: ESTADÍSTICAS DEL REPORTE
+   Panel lateral de estadísticas académicas.
+   ============================================================ */
+
+#estadisticas-reporte {
+    background-color: #e8edf5;
+    border-left: 5px solid #1a3c6e;
+    border-radius: 0 10px 10px 0;
+    padding: 22px 26px;
+    margin-top: 22px;
+}
+
+#estadisticas-reporte h3 {
+    margin-top: 0;
+    color: #1a3c6e;
+    font-size: 1.1rem;
+}
+
+#estadisticas-reporte ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+#estadisticas-reporte ul li {
+    padding: 6px 0;
+    border-bottom: 1px solid #d0dff5;
+    font-size: 0.97rem;
+    color: #333;
+}
+
+#estadisticas-reporte ul li:last-child {
+    border-bottom: none;
+}
