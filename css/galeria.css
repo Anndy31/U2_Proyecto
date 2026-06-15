@@ -1,0 +1,201 @@
+/* ============================================================
+   galeria.css — Estilos específicos de la página Galería
+   Complementa general.css. Implementa GRID para imágenes.
+   ============================================================ */
+
+/* ============================================================
+   BLOQUE 1: ENCABEZADO DE GALERÍA
+   Sección introductoria con degradado y Box Model.
+   ============================================================ */
+
+#galeria-header {
+    background: linear-gradient(135deg, #e8edf5, #d0dff5);
+    border-radius: 10px;
+    padding: 24px 28px;
+    text-align: center;
+    margin-bottom: 28px;
+    border-top: 4px solid #1a3c6e;
+}
+
+#galeria-header h2 {
+    border-bottom: none;
+    color: #1a3c6e;
+    font-size: 1.5rem;
+    margin-bottom: 8px;
+}
+
+/* ============================================================
+   BLOQUE 2: GRID DE GALERÍA DE IMÁGENES
+   display:grid, grid-template-columns:repeat(3, 1fr), gap.
+   ============================================================ */
+
+#galeria-imagenes h2 {
+    color: #1a3c6e;
+    margin-bottom: 18px;
+}
+
+/* ===== Grid principal de galería ===== */
+.grid-galeria {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: auto;
+    gap: 18px;
+    margin-top: 16px;
+    margin-bottom: 30px;
+}
+
+/* ===== Ítem individual de galería ===== */
+.galeria-item {
+    border: 1px solid #d0dff5;
+    border-radius: 10px;
+    overflow: hidden;
+    background-color: #f8faff;
+    padding: 0;
+    transition: box-shadow 0.2s, transform 0.15s;
+    box-sizing: border-box;
+}
+
+.galeria-item:hover {
+    box-shadow: 0 6px 20px rgba(26, 60, 110, 0.18);
+    transform: translateY(-3px);
+}
+
+.galeria-item img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 10px 10px 0 0;
+    border: none;
+    margin: 0;
+    display: block;
+}
+
+.galeria-item-caption {
+    padding: 12px 16px;
+    border-top: 1px solid #d0dff5;
+}
+
+.galeria-item-caption h3 {
+    font-size: 0.95rem;
+    color: #1a3c6e;
+    margin-bottom: 4px;
+}
+
+.galeria-item-caption p {
+    font-size: 0.85rem;
+    color: #666;
+    margin-bottom: 0;
+    text-align: left;
+}
+
+/* ===== Ítem destacado: ocupa 2 columnas ===== */
+.galeria-item-grande {
+    grid-column: span 2;
+}
+
+.galeria-item-grande img {
+    height: 240px;
+}
+
+/* ============================================================
+   BLOQUE 3: SECCIÓN DE ESTADÍSTICAS VISUALES (FLEXBOX)
+   Tarjetas de estadísticas en fila usando Flexbox.
+   ============================================================ */
+
+#galeria-stats {
+    margin-top: 10px;
+}
+
+#galeria-stats h2 {
+    color: #1a3c6e;
+    margin-bottom: 18px;
+}
+
+/* ===== Flexbox para estadísticas ===== */
+.flex-stats {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    align-items: stretch;
+    flex-wrap: wrap;
+    margin-top: 12px;
+}
+
+.stat-card {
+    background-color: #1a3c6e;
+    color: white;
+    border-radius: 10px;
+    padding: 20px 28px;
+    text-align: center;
+    min-width: 140px;
+    flex: 1;
+    border: 2px solid #0d2847;
+    box-sizing: border-box;
+}
+
+.stat-card .stat-numero {
+    font-size: 2rem;
+    font-weight: bold;
+    display: block;
+    color: #ffffff;
+}
+
+.stat-card .stat-label {
+    font-size: 0.88rem;
+    color: rgba(255,255,255,0.82);
+    margin-top: 4px;
+    display: block;
+}
+
+/* ============================================================
+   BLOQUE 4: RESPONSIVE PARA GALERÍA
+   2 columnas en tableta, 1 en móvil.
+   ============================================================ */
+
+@media (max-width: 768px) {
+    .grid-galeria {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 14px;
+    }
+
+    .galeria-item-grande {
+        grid-column: span 2;
+    }
+
+    .galeria-item img {
+        height: 140px;
+    }
+
+    .flex-stats {
+        gap: 12px;
+    }
+
+    .stat-card {
+        min-width: 100px;
+        padding: 14px 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .grid-galeria {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    .galeria-item-grande {
+        grid-column: span 1;
+    }
+
+    .galeria-item img {
+        height: 160px;
+    }
+
+    .flex-stats {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .stat-card {
+        width: 100%;
+    }
+}

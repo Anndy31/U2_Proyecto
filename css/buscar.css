@@ -1,0 +1,135 @@
+/* ============================================================
+   buscar.css — Estilos específicos de la página de búsqueda
+   Complementa general.css. Flexbox para filtros y resultados.
+   ============================================================ */
+
+/* ============================================================
+   BLOQUE 1: CABECERA DE BÚSQUEDA
+   Box Model: padding, margin, border-radius, border.
+   ============================================================ */
+
+#buscar-header {
+    background: linear-gradient(135deg, #e8edf5, #d0dff5);
+    border-radius: 10px;
+    padding: 24px 28px;
+    text-align: center;
+    margin-bottom: 28px;
+    border-top: 4px solid #1a3c6e;
+}
+
+#buscar-header h2 {
+    border-bottom: none;
+    color: #1a3c6e;
+    font-size: 1.5rem;
+    margin-bottom: 8px;
+}
+
+/* ============================================================
+   BLOQUE 2: BARRA DE BÚSQUEDA — FLEXBOX
+   display:flex, gap, align-items para formulario de búsqueda.
+   ============================================================ */
+
+#buscar-form {
+    margin-bottom: 28px;
+}
+
+#buscar-form h2 {
+    color: #1a3c6e;
+    margin-bottom: 16px;
+}
+
+/* ===== Fila de búsqueda con Flexbox ===== */
+.flex-buscar {
+    display: flex;
+    gap: 12px;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    background-color: #f8faff;
+    border: 1px solid #d0dff5;
+    border-radius: 10px;
+    padding: 20px 22px;
+    box-sizing: border-box;
+}
+
+.flex-buscar .form-grupo {
+    flex: 1;
+    min-width: 180px;
+    margin-bottom: 0;
+}
+
+.flex-buscar .btn-buscar {
+    background-color: #1a3c6e;
+    color: white;
+    padding: 10px 24px;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    height: 42px;
+    white-space: nowrap;
+}
+
+.flex-buscar .btn-buscar:hover {
+    background-color: #0d2847;
+}
+
+/* ============================================================
+   BLOQUE 3: RESULTADOS DE BÚSQUEDA
+   Tabla de resultados con estilos destacados.
+   ============================================================ */
+
+#buscar-resultados {
+    margin-top: 10px;
+}
+
+#buscar-resultados h2 {
+    color: #1a3c6e;
+    margin-bottom: 14px;
+}
+
+.resultado-tabla {
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(26, 60, 110, 0.09);
+    margin-bottom: 20px;
+}
+
+.resultado-tabla td:first-child {
+    font-weight: bold;
+    color: #1a3c6e;
+}
+
+/* ===== Sin resultados ===== */
+.sin-resultados {
+    text-align: center;
+    color: #888;
+    padding: 30px;
+    font-style: italic;
+    background-color: #f8faff;
+    border: 1px dashed #d0dff5;
+    border-radius: 8px;
+    margin-top: 10px;
+}
+
+/* ============================================================
+   BLOQUE 4: RESPONSIVE
+   ============================================================ */
+
+@media (max-width: 768px) {
+    .flex-buscar {
+        flex-direction: column;
+        gap: 14px;
+    }
+
+    .flex-buscar .form-grupo {
+        min-width: 100%;
+    }
+
+    .flex-buscar .btn-buscar {
+        width: 100%;
+        height: auto;
+        padding: 11px;
+    }
+}

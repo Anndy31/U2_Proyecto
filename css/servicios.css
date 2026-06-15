@@ -1,11 +1,11 @@
 /* ============================================================
-   servicios.css — Estilos específicos de la página de servicios
-   Complementa general.css sin modificar estilos globales.
+   servicios.css — Estilos específicos de la página Servicios
+   Complementa general.css. Implementa GRID para tarjetas.
    ============================================================ */
 
 /* ============================================================
-   BLOQUE 1: PRESENTACIÓN DE SERVICIOS
-   Encabezado introductorio de la sección de servicios.
+   BLOQUE 1: SECCIÓN DE PRESENTACIÓN DE SERVICIOS
+   Encabezado introductorio con degradado y Box Model.
    ============================================================ */
 
 #presentacion-servicios {
@@ -13,49 +13,83 @@
     border-radius: 10px;
     padding: 24px 28px;
     text-align: center;
-    margin-bottom: 24px;
+    margin-bottom: 30px;
+    border-top: 4px solid #1a3c6e;
 }
 
 #presentacion-servicios h2 {
     border-bottom: none;
     color: #1a3c6e;
     font-size: 1.5rem;
+    margin-bottom: 10px;
 }
 
 /* ============================================================
-   BLOQUE 2: TARJETAS DE SERVICIOS DISPONIBLES
-   Cada servicio presentado como tarjeta reutilizable.
+   BLOQUE 2: GRID DE TARJETAS DE SERVICIOS DISPONIBLES
+   display:grid, grid-template-columns, gap aplicados.
+   Cada tarjeta con Box Model completo: padding, border, margin.
    ============================================================ */
+
+#servicios-disponibles {
+    margin-bottom: 30px;
+}
+
+#servicios-disponibles h2 {
+    color: #1a3c6e;
+    margin-bottom: 20px;
+}
+
+/* ===== Grid de tarjetas de servicios ===== */
+.grid-servicios {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+    margin-top: 16px;
+}
 
 .tarjeta {
     border: 1px solid #d0dff5;
     border-radius: 10px;
-    padding: 18px 22px;
+    padding: 20px 22px;
     background-color: #f8faff;
-    margin-bottom: 14px;
+    width: 100%;
+    height: 100%;
     transition: box-shadow 0.2s, transform 0.15s;
+    box-sizing: border-box;
+    border-top: 3px solid #1a3c6e;
 }
 
 .tarjeta:hover {
-    box-shadow: 0 4px 16px rgba(26, 60, 110, 0.13);
-    transform: translateY(-2px);
+    box-shadow: 0 4px 16px rgba(26, 60, 110, 0.18);
+    transform: translateY(-3px);
 }
 
 .tarjeta h3 {
     margin-top: 0;
+    margin-bottom: 10px;
     color: #1a3c6e;
     font-size: 1.05rem;
+    border-bottom: 1px solid #d0dff5;
+    padding-bottom: 8px;
 }
 
 .tarjeta p {
     color: #444;
     font-size: 0.95rem;
     margin-bottom: 0;
+    text-align: left;
+}
+
+/* ===== Icono decorativo en tarjeta ===== */
+.tarjeta-icono {
+    font-size: 1.6rem;
+    margin-bottom: 10px;
+    display: block;
 }
 
 /* ============================================================
    BLOQUE 3: CALENDARIO ACADÉMICO
-   Estilos específicos para la tabla del calendario.
+   Estilos específicos para la sección y tabla del calendario.
    ============================================================ */
 
 #calendario {
@@ -64,6 +98,7 @@
 
 #calendario h2 {
     color: #1a3c6e;
+    margin-bottom: 14px;
 }
 
 #calendario table {
@@ -79,4 +114,23 @@
 #calendario td:first-child {
     font-weight: bold;
     color: #1a3c6e;
+}
+
+/* ============================================================
+   BLOQUE 4: RESPONSIVE — GRID ADAPTABLE
+   2 columnas en tableta, 1 columna en móvil.
+   ============================================================ */
+
+@media (max-width: 768px) {
+    .grid-servicios {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    .grid-servicios {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
 }
