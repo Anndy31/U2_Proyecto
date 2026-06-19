@@ -1,84 +1,34 @@
 /* ============================================================
-   acerca.css — Estilos específicos de la página "Acerca de"
-   Complementa general.css sin modificar estilos globales.
+   acerca.css — Estilos de la página Acerca de
    ============================================================ */
 
-/* ============================================================
-   BLOQUE 1: PRESENTACIÓN / QUÉ ES UNINOTAS
-   Sección de descripción del sistema.
-   ============================================================ */
-
-#que-es {
+.acerca-presentacion {
     background: linear-gradient(135deg, #e8edf5, #d0dff5);
-    border-radius: 10px;
-    padding: 24px 28px;
-    text-align: center;
-    margin-bottom: 26px;
-    border-top: 4px solid #1a3c6e;
+    box-shadow: 0 4px 10px rgba(26, 60, 110, 0.08);
 }
 
-#que-es h2 {
-    border-bottom: none;
-    color: #1a3c6e;
+.tarjeta-mision-vision {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* ============================================================
-   BLOQUE 2: MISIÓN Y VISIÓN
-   Bloques de misión y visión con estilo de tarjeta.
-   ============================================================ */
-
-#mision,
-#vision {
-    background-color: #f8faff;
-    border-left: 5px solid #1a3c6e;
-    border-radius: 0 10px 10px 0;
-    padding: 18px 24px;
-    margin-bottom: 22px;
+.tarjeta-mision-vision:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 6px 15px rgba(26, 60, 110, 0.12) !important;
 }
 
-#mision h2,
-#vision h2 {
-    color: #1a3c6e;
-    border-bottom: none;
-    font-size: 1.2rem;
+/* Personalización del Acordeón de Bootstrap */
+.accordion-button:not(.collapsed) {
+    background-color: #e8edf5 !important;
+    color: #c07800 !important; 
+    box-shadow: inset 0 -1px 0 rgba(0,0,0,.125);
 }
 
-/* ============================================================
-   BLOQUE 3: PREGUNTAS DESPLEGABLES / OBJETIVOS
-   Estilos diferenciados para los details/summary de esta página.
-   ============================================================ */
-
-#objetivos {
-    margin-top: 10px;
+.accordion-button:focus {
+    border-color: #1a3c6e;
+    box-shadow: 0 0 0 0.25rem rgba(26, 60, 110, 0.25);
 }
 
-#objetivos h2 {
-    color: #1a3c6e;
-}
-
-#objetivos details {
-    border-left: 4px solid #1a3c6e;
-    background-color: #f4f7ff;
-    transition: background-color 0.2s;
-}
-
-#objetivos details[open] {
-    background-color: #e8edf5;
-    border-left-color: #e6a817;
-}
-
-#objetivos summary {
-    font-size: 1rem;
-    color: #1a3c6e;
-    padding: 4px 0;
-}
-
-#objetivos details[open] summary {
-    color: #c07800;
-}
-
-#objetivos details p {
-    color: #333;
-    font-size: 0.95rem;
-    line-height: 1.6;
+.accordion-item {
+    border-color: #dce3ed;
+    overflow: hidden;
 }

@@ -1,136 +1,62 @@
 /* ============================================================
-   servicios.css — Estilos específicos de la página Servicios
-   Complementa general.css. Implementa GRID para tarjetas.
+   servicios.css — Personalización de componentes Bootstrap
+   Enfoque: Tarjetas de Servicios y Calendario
    ============================================================ */
 
-/* ============================================================
-   BLOQUE 1: SECCIÓN DE PRESENTACIÓN DE SERVICIOS
-   Encabezado introductorio con degradado y Box Model.
-   ============================================================ */
+/* Banner Principal */
+.servicios-banner {
+    background: linear-gradient(135deg, #e8edf5 0%, #d0dff5 100%);
+    border-top: 5px solid #1a3c6e;
+    box-shadow: 0 4px 12px rgba(26, 60, 110, 0.05);
+}
 
-#presentacion-servicios {
-    background: linear-gradient(135deg, #e8edf5, #d0dff5);
+/* Animaciones y sombras propias para las cards de Bootstrap */
+.card-servicio {
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    border: none !important; /* Quitamos el borde base de Bootstrap */
+    border-top: 4px solid #1a3c6e !important; /* Borde institucional grueso */
+    background-color: #ffffff !important;
     border-radius: 10px;
-    padding: 24px 28px;
-    text-align: center;
-    margin-bottom: 30px;
-    border-top: 4px solid #1a3c6e;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05) !important; /* Sombra base suave */
+    cursor: pointer;
 }
 
-#presentacion-servicios h2 {
-    border-bottom: none;
-    color: #1a3c6e;
-    font-size: 1.5rem;
-    margin-bottom: 10px;
+/* Efecto hover: La tarjeta se eleva y la sombra crece */
+.card-servicio:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 30px rgba(26, 60, 110, 0.15) !important;
 }
 
-/* ============================================================
-   BLOQUE 2: GRID DE TARJETAS DE SERVICIOS DISPONIBLES
-   display:grid, grid-template-columns, gap aplicados.
-   Cada tarjeta con Box Model completo: padding, border, margin.
-   ============================================================ */
-
-#servicios-disponibles {
-    margin-bottom: 30px;
+.card-servicio .card-title {
+    transition: color 0.3s ease;
 }
 
-#servicios-disponibles h2 {
-    color: #1a3c6e;
-    margin-bottom: 20px;
+/* Al pasar el mouse por la tarjeta, el título resalta un poco más */
+.card-servicio:hover .card-title {
+    color: #122d54 !important;
 }
 
-/* ===== Grid de tarjetas de servicios ===== */
-.grid-servicios {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 18px;
-    margin-top: 16px;
-}
-
-.tarjeta {
-    border: 1px solid #d0dff5;
-    border-radius: 10px;
-    padding: 20px 22px;
-    background-color: #f8faff;
-    width: 100%;
-    height: 100%;
-    transition: box-shadow 0.2s, transform 0.15s;
-    box-sizing: border-box;
-    border-top: 3px solid #1a3c6e;
-}
-
-.tarjeta:hover {
-    box-shadow: 0 4px 16px rgba(26, 60, 110, 0.18);
-    transform: translateY(-3px);
-}
-
-.tarjeta h3 {
-    margin-top: 0;
-    margin-bottom: 10px;
-    color: #1a3c6e;
-    font-size: 1.05rem;
-    border-bottom: 1px solid #d0dff5;
-    padding-bottom: 8px;
-}
-
-.tarjeta p {
-    color: #444;
-    font-size: 0.95rem;
-    margin-bottom: 0;
-    text-align: left;
-}
-
-/* ===== Icono decorativo en tarjeta ===== */
-.tarjeta-icono {
-    font-size: 1.6rem;
-    margin-bottom: 10px;
-    display: block;
-}
-
-/* ============================================================
-   BLOQUE 3: CALENDARIO ACADÉMICO
-   Estilos específicos para la sección y tabla del calendario.
-   ============================================================ */
-
-#calendario {
-    margin-top: 10px;
-}
-
-#calendario h2 {
-    color: #1a3c6e;
-    margin-bottom: 14px;
-}
-
+/* Tabla de calendario personalizada */
 #calendario table {
-    border-radius: 8px;
+    border-radius: 10px;
     overflow: hidden;
-    box-shadow: 0 2px 8px rgba(26, 60, 110, 0.09);
-}
-
-#calendario tbody tr:hover {
-    background-color: #d0dff5;
+    box-shadow: 0 4px 12px rgba(26, 60, 110, 0.08);
+    border-collapse: separate; 
+    border-spacing: 0;
 }
 
 #calendario td:first-child {
     font-weight: bold;
     color: #1a3c6e;
+    background-color: #f8faff; /* Fondo distinto para la primera columna */
 }
 
-/* ============================================================
-   BLOQUE 4: RESPONSIVE — GRID ADAPTABLE
-   2 columnas en tableta, 1 columna en móvil.
-   ============================================================ */
-
-@media (max-width: 768px) {
-    .grid-servicios {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 14px;
-    }
+/* Interacción sutil en las filas del calendario */
+#calendario tbody tr {
+    transition: background-color 0.2s ease, transform 0.2s ease;
 }
 
-@media (max-width: 480px) {
-    .grid-servicios {
-        grid-template-columns: 1fr;
-        gap: 12px;
-    }
+#calendario tbody tr:hover {
+    transform: scale(1.01);
+    background-color: #ffffff;
 }

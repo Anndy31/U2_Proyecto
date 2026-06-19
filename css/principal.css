@@ -1,84 +1,37 @@
 /* ============================================================
-   principal.css — Estilos específicos del dashboard (página principal)
-   Complementa general.css sin modificar estilos globales.
-   ============================================================ */
-
-/* ============================================================
-   BLOQUE 1: SECCIÓN DE BIENVENIDA
-   Presentación principal del sistema al ingresar.
+   principal.css — Estilos específicos del dashboard
+   Enfoque: Mobile-First y Personalización Visual
    ============================================================ */
 
 #bienvenida {
     background: linear-gradient(135deg, #e8edf5 0%, #d0dff5 100%);
-    border-left: 6px solid #1a3c6e;
+    border-left: 6px solid #1a3c6e !important;
     border-radius: 0 10px 10px 0;
-    padding: 22px 28px;
-    margin-bottom: 28px;
-}
-
-#bienvenida h2 {
-    color: #1a3c6e;
-    border-bottom: none;
-    font-size: 1.5rem;
-}
-
-#bienvenida p {
-    color: #333;
-    font-size: 1rem;
-    margin-bottom: 0;
-}
-
-/* ============================================================
-   BLOQUE 2: TABLA DE CALIFICACIONES DEL ESTUDIANTE
-   Estilos diferenciados para la tabla de notas personales.
-   ============================================================ */
-
-#notas-semestre {
-    margin-bottom: 30px;
-}
-
-#notas-semestre h2 {
-    color: #1a3c6e;
+    box-shadow: 0 4px 12px rgba(26, 60, 110, 0.05);
 }
 
 #notas-semestre table {
     border-radius: 8px;
     overflow: hidden;
-    box-shadow: 0 2px 8px rgba(26, 60, 110, 0.10);
-}
-
-#notas-semestre thead {
-    background-color: #1a3c6e;
+    box-shadow: 0 4px 15px rgba(26, 60, 110, 0.08);
+    border-collapse: separate; 
+    border-spacing: 0;
 }
 
 #notas-semestre th {
-    font-size: 0.92rem;
     letter-spacing: 0.3px;
+    text-transform: uppercase;
+    font-size: 0.85rem;
 }
 
-/* ============================================================
-   BLOQUE 3: AVISOS IMPORTANTES
-   Bloque de lista de avisos con estilo de alerta suave.
-   ============================================================ */
-
+/* Panel de avisos (si decides agregarlo al HTML) */
 #avisos {
     background-color: #fffbe6;
     border-left: 5px solid #e6a817;
     border-radius: 0 8px 8px 0;
-    padding: 18px 24px;
-}
-
-#avisos h2 {
-    color: #c07800;
-    border-bottom: 2px solid #f5d78e;
-    font-size: 1.15rem;
-}
-
-#avisos ul li {
-    color: #5a4000;
-    font-size: 0.97rem;
 }
 
 #avisos ul li::marker {
     color: #e6a817;
+    font-size: 1.2rem;
 }

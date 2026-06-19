@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uninotas>
+    <sistema>
+        <nombre>UniNotas</nombre>
+        <descripcion>Sistema de Gestión de Notas Universitarias</descripcion>
+        <version>2.0</version>
+        <institucion>Universidad de las Fuerzas Armadas ESPE</institucion>
+        <sede>Sede Santo Domingo</sede>
+        <periodo_activo>2026-1</periodo_activo>
+        <autor>Anndy Tomalo</autor>
+    </sistema>
+
+    <estudiantes>
+        <estudiante id="E001">
+            <cedula>1750123456</cedula>
+            <nombres>Anndy Ismael</nombres>
+            <apellidos>Tomalo</apellidos>
+            <correo>aitomalo@espe.edu.ec</correo>
+            <semestre>6</semestre>
+        </estudiante>
+    </estudiantes>
+
+    <materias>
+        <materia codigo="23758">
+            <nombre>Estructura de Datos</nombre>
+            <creditos>4</creditos>
+        </materia>
+        <materia codigo="54125">
+            <nombre>Ingeniería de Software</nombre>
+            <creditos>3</creditos>
+        </materia>
+        <materia codigo="26485">
+            <nombre>Cálculo Diferencial</nombre>
+            <creditos>4</creditos>
+        </materia>
+        <materia codigo="25485">
+            <nombre>Redes de Computadoras</nombre>
+            <creditos>4</creditos>
+        </materia>
+    </materias>
+
+    <calificaciones>
+        <registro estudiante_id="E001" materia_codigo="23758">
+            <parcial1>9.0</parcial1>
+            <parcial2>9.0</parcial2>
+            <parcial3>9.5</parcial3>
+            <promedio_final>9.11</promedio_final>
+            <estado>Aprobado</estado>
+        </registro>
+        <registro estudiante_id="E001" materia_codigo="54125">
+            <parcial1>7.0</parcial1>
+            <parcial2>8.0</parcial2>
+            <parcial3>7.5</parcial3>
+            <promedio_final>7.50</promedio_final>
+            <estado>Aprobado</estado>
+        </registro>
+    </calificaciones>
+</uninotas>

@@ -1,99 +1,101 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Acerca de | UniNotas</title>
-    <link rel="icon" href="Barra/help_information_chat_bubble_info_about_communications_speech_icon_258982.ico">
+    <!-- Bootstrap 5 CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/general.css">
-    <link rel="stylesheet" href="css/acerca.css">
+      <link rel="stylesheet" href="css/acerca.css">
 </head>
 
 <body>
-
     <header>
-        <div class="header-logo">
-            <span>UN</span>
-        </div>
+        <div class="header-logo"><span>UN</span></div>
         <span class="header-titulo">UniNotas</span>
         <p>Sistema de Gestión de Notas Universitarias</p>
     </header>
 
-    <nav>
-        <a href="principal.html">Inicio</a>
-        <a href="docente.html">Panel Docente</a>
-        <a href="reportes.html">Reportes</a>
-        <a href="servicios.html">Servicios</a>
-        <a href="galeria.html">Galería</a>
-        <a href="acerca.html">Acerca de</a>
-        <a href="contacto.html">Contacto</a>
-        <a href="buscar.html">Buscar</a>
-        <a href="index.html" class="nav-cerrar">Cerrar Sesión</a>
+    <!-- Navbar Bootstrap Oficial -->
+    <nav class="navbar navbar-expand-lg nav-uninotas">
+        <div class="container-fluid">
+            <a class="navbar-brand text-white fw-bold d-lg-none" href="principal.html">Menú</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navMenu">
+                <ul class="navbar-nav mx-auto gap-1">
+                    <li class="nav-item"><a class="nav-link text-white" href="principal.html">Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link text-white" href="docente.html">Panel Docente</a></li>
+                    <li class="nav-item"><a class="nav-link text-white" href="reportes.html">Reportes</a></li>
+                    <li class="nav-item"><a class="nav-link text-white" href="servicios.html">Servicios</a></li>
+                    <li class="nav-item"><a class="nav-link text-white" href="galeria.html">Galería</a></li>
+                    <li class="nav-item"><a class="nav-link text-white" href="acerca.html">Acerca de</a></li>
+                    <li class="nav-item"><a class="nav-link text-white" href="contacto.html">Contacto</a></li>
+                    <li class="nav-item"><a class="nav-link text-white" href="buscar.html">Buscar</a></li>
+                    <li class="nav-item mt-2 mt-lg-0"><a class="nav-link btn-cerrar px-3 rounded ms-lg-2 text-center" href="index.html">Cerrar Sesión</a></li>
+                </ul>
+            </div>
+        </div>
     </nav>
 
-    <main>
-        <div class="card">
-
-            <section id="que-es">
-                <h2 class="centrado">¿Qué es UniNotas?</h2>
-                <p class="centrado">
-                    UniNotas es un sistema de gestión de notas universitarias diseñado para
-                    facilitar el control académico de los estudiantes. La plataforma permite
-                    consultar calificaciones, revisar materias, visualizar promedios y acceder
-                    a información importante del semestre.
-                </p>
+    <main class="container">
+        <div class="card-uninotas shadow-sm">
+            <section class="text-center p-4 rounded mb-4" style="background: linear-gradient(135deg, #e8edf5, #d0dff5); border-top: 4px solid #1a3c6e;">
+                <h2 class="fw-bold" style="color: #1a3c6e;">¿Qué es UniNotas?</h2>
+                <p>UniNotas es un sistema de gestión de notas diseñado para facilitar el control académico. Permite consultar calificaciones, materias y acceder a información importante del semestre.</p>
             </section>
 
-            <section id="mision">
-                <h2 class="centrado">Misión</h2>
-                <p class="centrado">
-                    Ofrecer una plataforma digital confiable, segura y accesible que automatice
-                    el registro y consulta de calificaciones académicas, reduciendo el tiempo
-                    que docentes y estudiantes invierten en procesos manuales.
-                </p>
-            </section>
+            <div class="row g-4 mb-5">
+                <div class="col-md-6">
+                    <div class="h-100 p-4 bg-light border-start border-primary border-4 rounded">
+                        <h2 class="fw-bold mb-3 fs-4" style="color: #1a3c6e;">Misión</h2>
+                        <p>Ofrecer una plataforma digital confiable y accesible que automatice el registro de calificaciones académicas, reduciendo el tiempo de procesos manuales.</p>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="h-100 p-4 bg-light border-start border-primary border-4 rounded">
+                        <h2 class="fw-bold mb-3 fs-4" style="color: #1a3c6e;">Visión</h2>
+                        <p>Convertirse en un sistema académico reconocido por su facilidad de uso y apoyo al desarrollo educativo de estudiantes universitarios en el país.</p>
+                    </div>
+                </div>
+            </div>
 
-            <section id="vision">
-                <h2 class="centrado">Visión</h2>
-                <p class="centrado">
-                    Convertirse en un sistema académico reconocido por su facilidad de uso,
-                    accesibilidad y apoyo al desarrollo educativo de los estudiantes universitarios
-                    en diferentes instituciones académicas del país.
-                </p>
-            </section>
-
-            <section id="objetivos">
-                <h2 class="centrado">Objetivos Específicos</h2>
-
-                <details>
-                    <summary>¿Con qué objetivo se realiza esta actividad?</summary>
-                    <p>El presente proyecto tiene como objetivo facilitar la gestión de notas académicas.</p>
-                </details>
-
-                <details>
-                    <summary>¿Qué beneficios ofrece el sistema?</summary>
-                    <p>El sistema permite registrar, consultar y organizar las notas académicas de manera
-                    rápida y eficiente, mejorando el control de información y reduciendo errores en el
-                    proceso académico.</p>
-                </details>
-
-                <details>
-                    <summary>¿Para qué público va dirigido?</summary>
-                    <p>Va dirigido para personal docente y también para personal académico estudiantil.</p>
-                </details>
-
-                <div style="text-align:center; margin-top:20px;">
-                    <img src="img/que es.jpg" alt="Acerca de UniNotas" width="380" class="img-centrada">
+            <section>
+                <h2 class="fw-bold mb-4 text-center" style="color: #1a3c6e;">Objetivos Específicos</h2>
+                
+                <!-- Acordeón Bootstrap -->
+                <div class="accordion" id="accordionObjetivos">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" style="color: #1a3c6e;">
+                                ¿Con qué objetivo se realiza esta actividad?
+                            </button>
+                        </h2>
+                        <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionObjetivos">
+                            <div class="accordion-body">El presente proyecto tiene como objetivo facilitar la gestión de notas académicas.</div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" style="color: #1a3c6e;">
+                                ¿Qué beneficios ofrece el sistema?
+                            </button>
+                        </h2>
+                        <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionObjetivos">
+                            <div class="accordion-body">Permite registrar y organizar notas de manera rápida, mejorando el control de información.</div>
+                        </div>
+                    </div>
                 </div>
             </section>
-
         </div>
     </main>
 
     <footer>
-        <p>&copy; 2025 Anndy Tomalo &mdash; Sistema de Gestión de Notas Universitarias</p>
+        <p>&copy; 2026 Anndy Tomalo &mdash; Sistema de Gestión de Notas Universitarias</p>
     </footer>
 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

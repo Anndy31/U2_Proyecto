@@ -1,65 +1,68 @@
 /* ============================================================
-   registro.css — Estilos específicos de la página de registro
-   Complementa general.css sin modificar estilos globales.
+   registro.css — Personalización visual del registro
+   Enfoque: Mobile-First y Diseño Premium
    ============================================================ */
 
-/* ============================================================
-   BLOQUE 1: TARJETA DE REGISTRO
-   Contenedor principal del formulario de nueva cuenta.
-   ============================================================ */
-
-#pagina-registro .card-angosta {
+/* Contenedor de la tarjeta de registro */
+#pagina-registro .card-registro {
+    background-color: #ffffff;
+    max-width: 520px; /* Reemplaza el style en línea del HTML */
+    border: none;
     border-top: 5px solid #1e7e34;
-    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.12);
+    border-radius: 12px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.06);
+    padding: 24px 20px;
+    transition: box-shadow 0.4s ease, transform 0.4s ease;
 }
 
-#pagina-registro h2 {
-    color: #1e7e34;
+/* Efecto hover sobre la tarjeta completa */
+#pagina-registro .card-registro:hover {
+    box-shadow: 0 12px 35px rgba(30, 126, 52, 0.12);
+    transform: translateY(-3px);
 }
 
-/* ============================================================
-   BLOQUE 2: FORMULARIO DE REGISTRO
-   Campos y botón específicos de la pantalla de registro.
-   ============================================================ */
-
+/* Interacción suave en los inputs y selects */
 #pagina-registro input,
 #pagina-registro select {
-    background-color: #f7fff9;
-    border-color: #b0d4bb;
+    border: 1px solid #ced4da;
+    transition: all 0.3s ease;
 }
 
 #pagina-registro input:focus,
 #pagina-registro select:focus {
     border-color: #1e7e34;
-    box-shadow: 0 0 0 3px rgba(30, 126, 52, 0.15);
-    background-color: #ffffff;
+    box-shadow: 0 0 0 4px rgba(30, 126, 52, 0.15);
+    background-color: #ffffff !important;
+    transform: translateY(-2px); /* Pequeño salto visual al escribir */
 }
 
-#pagina-registro .btn-completo.btn-verde {
-    font-size: 1.05rem;
-    font-weight: bold;
-    letter-spacing: 0.4px;
-    padding: 13px;
-    border-radius: 8px;
-    transition: background-color 0.2s, transform 0.15s;
+/* Animación y sombra para el botón de registro */
+#pagina-registro .btn-success {
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(30, 126, 52, 0.2);
 }
 
-#pagina-registro .btn-completo.btn-verde:hover {
-    background-color: #155724;
-    transform: translateY(-1px);
+#pagina-registro .btn-success:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(30, 126, 52, 0.35);
 }
 
-/* ============================================================
-   BLOQUE 3: ENLACE DE INICIO DE SESIÓN
-   Estilo del enlace al login desde la página de registro.
-   ============================================================ */
-
-#pagina-registro a {
+/* Personalización del enlace inferior */
+#pagina-registro .link-login {
     color: #1e7e34;
     font-weight: bold;
+    transition: color 0.2s ease;
     text-decoration: underline;
 }
 
-#pagina-registro a:hover {
+#pagina-registro .link-login:hover {
     color: #155724;
+}
+
+/* ===== Media Queries: Escalando a PC ===== */
+@media (min-width: 768px) {
+    #pagina-registro .card-registro {
+        padding: 40px 45px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    }
 }

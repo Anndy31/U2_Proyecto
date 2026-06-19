@@ -1,17 +1,16 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard | UniNotas</title>
     <link rel="icon" href="Barra/3643769-building-home-house-main-menu-start_113416.ico">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/general.css">
-     <link rel="stylesheet" href="css/principal.css">
+    <link rel="stylesheet" href="css/principal.css">
 </head>
 
 <body>
-
     <header>
         <div class="header-logo">
             <span>UN</span>
@@ -20,109 +19,103 @@
         <p>Sistema de Gestión de Notas Universitarias</p>
     </header>
 
-    <nav>
-        <a href="principal.html">Inicio</a>
-        <a href="docente.html">Panel Docente</a>
-        <a href="reportes.html">Reportes</a>
-        <a href="servicios.html">Servicios</a>
-        <a href="galeria.html">Galería</a>
-        <a href="acerca.html">Acerca de</a>
-        <a href="contacto.html">Contacto</a>
-        <a href="buscar.html">Buscar</a>
-        <a href="index.html" class="nav-cerrar">Cerrar Sesión</a>
+    <nav class="navbar navbar-expand-lg nav-uninotas">
+        <div class="container-fluid">
+            <a class="navbar-brand text-white fw-bold d-lg-none" href="principal.html">Menú</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navMenu">
+                <ul class="navbar-nav mx-auto gap-1">
+                    <li class="nav-item"><a class="nav-link text-white" href="principal.html">Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link text-white" href="docente.html">Panel Docente</a></li>
+                    <li class="nav-item"><a class="nav-link text-white" href="reportes.html">Reportes</a></li>
+                    <li class="nav-item"><a class="nav-link text-white" href="servicios.html">Servicios</a></li>
+                    <li class="nav-item"><a class="nav-link text-white" href="galeria.html">Galería</a></li>
+                    <li class="nav-item"><a class="nav-link text-white" href="acerca.html">Acerca de</a></li>
+                    <li class="nav-item"><a class="nav-link text-white" href="contacto.html">Contacto</a></li>
+                    <li class="nav-item"><a class="nav-link text-white" href="buscar.html">Buscar</a></li>
+                    <li class="nav-item mt-2 mt-lg-0"><a class="nav-link btn-cerrar px-3 rounded ms-lg-2 text-center" href="index.html">Cerrar Sesión</a></li>
+                </ul>
+            </div>
+        </div>
     </nav>
 
-    <main>
-        <div class="card">
-
-            <section id="bienvenida">
-                <h2 class="centrado">Bienvenido al Sistema UniNotas</h2>
-                <p class="centrado">
-                    Desde esta plataforma podrás consultar tus calificaciones,
-                    revisar tus materias matriculadas y conocer tu rendimiento académico
-                    durante el semestre actual.
-                </p>
-                <div style="text-align:center;">
-                    <img src="img/logo1.png" alt="Logo UniNotas" width="380" class="img-centrada">
+    <main class="container">
+        <div class="card-uninotas shadow-sm">
+            <section id="bienvenida" class="mb-5 p-4 rounded bg-light border-start border-5" style="border-color: #1a3c6e !important;">
+                <h2 class="text-center fw-bold" style="color: #1a3c6e;">Bienvenido al Sistema UniNotas</h2>
+                <p class="text-center">Desde esta plataforma podrás consultar tus calificaciones, revisar tus materias matriculadas y conocer tu rendimiento académico durante el semestre actual.</p>
+                <div class="text-center mt-3">
+                    <img src="img/logo1.png" alt="Logo UniNotas" width="250" class="img-fluid rounded">
                 </div>
             </section>
 
-            <section id="notas-semestre">
-                <h2 class="centrado">Notas del Semestre — Período 2026-1</h2>
-                <p class="centrado subtitulo">
-                    Estudiante: <strong>Anndy Tomalo</strong> &nbsp;|&nbsp; Semestre 6
-                </p>
+            <section id="notas-semestre" class="mb-5">
+                <h2 class="text-center fw-bold" style="color: #1a3c6e;">Notas del Semestre — Período 2026-1</h2>
+                <p class="text-center text-muted mb-4">Estudiante: <strong>Anndy Ismael Tomalo Quinllin</strong> | Semestre 6</p>
 
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Código</th>
-                            <th>Materia</th>
-                            <th class="centrado">Parcial 1</th>
-                            <th class="centrado">Parcial 2</th>
-                            <th class="centrado">Examen Final</th>
-                            <th class="centrado">Promedio</th>
-                            <th class="centrado">Estado</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>23758</td>
-                            <td>Estructura de Datos</td>
-                            <td class="centrado">8.9</td>
-                            <td class="centrado">9.0</td>
-                            <td class="centrado">9.5</td>
-                            <td class="centrado"><strong>9.11</strong></td>
-                            <td class="centrado estado-aprobado">Aprobado</td>
-                        </tr>
-                        <tr>
-                            <td>54125</td>
-                            <td>Ingeniería de Software</td>
-                            <td class="centrado">7.0</td>
-                            <td class="centrado">8.0</td>
-                            <td class="centrado">7.5</td>
-                            <td class="centrado"><strong>7.5</strong></td>
-                            <td class="centrado estado-aprobado">Aprobado</td>
-                        </tr>
-                        <tr>
-                            <td>26485</td>
-                            <td>Cálculo Diferencial</td>
-                            <td class="centrado">6.0</td>
-                            <td class="centrado">7.0</td>
-                            <td class="centrado">6.5</td>
-                            <td class="centrado"><strong>6.5</strong></td>
-                            <td class="centrado estado-reprobado">Reprobado</td>
-                        </tr>
-                        <tr>
-                            <td>25485</td>
-                            <td>Redes de Computadoras</td>
-                            <td class="centrado">10</td>
-                            <td class="centrado">9.0</td>
-                            <td class="centrado">9.5</td>
-                            <td class="centrado"><strong>9.5</strong></td>
-                            <td class="centrado estado-aprobado">Aprobado</td>
-                        </tr>
-                    </tbody>
-                </table>
+                <div class="table-responsive">
+                    <table class="table table-striped table-hover table-bordered align-middle">
+                        <thead class="text-center">
+                            <tr>
+                                <th scope="col">Código</th>
+                                <th scope="col">Materia</th>
+                                <th scope="col">Parcial 1</th>
+                                <th scope="col">Parcial 2</th>
+                                <th scope="col">Examen Final</th>
+                                <th scope="col">Promedio</th>
+                                <th scope="col">Estado</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>23758</td>
+                                <td>Estructura de Datos</td>
+                                <td class="text-center">8.9</td>
+                                <td class="text-center">9.0</td>
+                                <td class="text-center">9.5</td>
+                                <td class="text-center fw-bold">9.11</td>
+                                <td class="text-center"><span class="badge badge-aprobado px-3 py-2">Aprobado</span></td>
+                            </tr>
+                            <tr>
+                                <td>54125</td>
+                                <td>Ingeniería de Software</td>
+                                <td class="text-center">7.0</td>
+                                <td class="text-center">8.0</td>
+                                <td class="text-center">7.5</td>
+                                <td class="text-center fw-bold">7.5</td>
+                                <td class="text-center"><span class="badge badge-aprobado px-3 py-2">Aprobado</span></td>
+                            </tr>
+                            <tr>
+                                <td>26485</td>
+                                <td>Cálculo Diferencial</td>
+                                <td class="text-center">6.0</td>
+                                <td class="text-center">7.0</td>
+                                <td class="text-center">6.5</td>
+                                <td class="text-center fw-bold">6.5</td>
+                                <td class="text-center"><span class="badge badge-reprobado px-3 py-2">Reprobado</span></td>
+                            </tr>
+                            <tr>
+                                <td>25485</td>
+                                <td>Redes de Computadoras</td>
+                                <td class="text-center">10</td>
+                                <td class="text-center">9.0</td>
+                                <td class="text-center">9.5</td>
+                                <td class="text-center fw-bold">9.5</td>
+                                <td class="text-center"><span class="badge badge-aprobado px-3 py-2">Aprobado</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             </section>
-
-            <section id="avisos">
-                <h2>Avisos Importantes</h2>
-                <ul>
-                    <li>Los exámenes finales se realizarán en junio.</li>
-                    <li>Revise constantemente sus calificaciones en el sistema.</li>
-                    <li>El período de recalificaciones termina el 30 de junio.</li>
-                    <li>Mantenga actualizados sus datos personales en secretaría.</li>
-                    <li>Para solicitar el boletín de notas, diríjase a la sección Servicios.</li>
-                </ul>
-            </section>
-
         </div>
     </main>
 
     <footer>
-        <p>&copy; 2025 Anndy Tomalo &mdash; Sistema de Gestión de Notas Universitarias</p>
+        <p>&copy; 2026 Anndy Tomalo &mdash; Sistema de Gestión de Notas Universitarias</p>
     </footer>
 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

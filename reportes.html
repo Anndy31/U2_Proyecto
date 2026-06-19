@@ -1,17 +1,16 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Reportes | UniNotas</title>
     <link rel="icon" href="Barra/4124799-finance-report-graph-analysis-graph-report-sale-report-stock-report_113890.ico">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/general.css">
     <link rel="stylesheet" href="css/reportes.css">
 </head>
 
 <body>
-
     <header>
         <div class="header-logo">
             <span>UN</span>
@@ -20,172 +19,128 @@
         <p>Sistema de Gestión de Notas Universitarias</p>
     </header>
 
-    <nav>
-        <a href="principal.html">Inicio</a>
-        <a href="docente.html">Panel Docente</a>
-        <a href="reportes.html">Reportes</a>
-        <a href="servicios.html">Servicios</a>
-        <a href="galeria.html">Galería</a>
-        <a href="acerca.html">Acerca de</a>
-        <a href="contacto.html">Contacto</a>
-        <a href="buscar.html">Buscar</a>
-        <a href="index.html" class="nav-cerrar">Cerrar Sesión</a>
+    <nav class="navbar navbar-expand-lg nav-uninotas">
+        <div class="container-fluid">
+            <a class="navbar-brand text-white fw-bold d-lg-none" href="principal.html">Menú</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navMenu">
+                <ul class="navbar-nav mx-auto gap-1">
+                    <li class="nav-item"><a class="nav-link text-white" href="principal.html">Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link text-white" href="docente.html">Panel Docente</a></li>
+                    <li class="nav-item"><a class="nav-link text-white" href="reportes.html">Reportes</a></li>
+                    <li class="nav-item"><a class="nav-link text-white" href="servicios.html">Servicios</a></li>
+                    <li class="nav-item"><a class="nav-link text-white" href="galeria.html">Galería</a></li>
+                    <li class="nav-item"><a class="nav-link text-white" href="acerca.html">Acerca de</a></li>
+                    <li class="nav-item"><a class="nav-link text-white" href="contacto.html">Contacto</a></li>
+                    <li class="nav-item"><a class="nav-link text-white" href="buscar.html">Buscar</a></li>
+                    <li class="nav-item mt-2 mt-lg-0"><a class="nav-link btn-cerrar px-3 rounded ms-lg-2 text-center" href="index.html">Cerrar Sesión</a></li>
+                </ul>
+            </div>
+        </div>
     </nav>
 
-    <main>
-        <div class="card">
-
-            <section>
-                <h2 class="centrado">Generación de Reportes</h2>
-                <p class="centrado subtitulo">
-                    Panel Administrativo / Docente — Seleccione los filtros y genere el reporte académico.
-                </p>
+    <main class="container">
+        <div class="card-uninotas shadow-sm">
+            <section class="mb-4">
+                <h2 class="text-center fw-bold" style="color: #1a3c6e;">Generación de Reportes</h2>
+                <p class="text-center text-muted">Panel Administrativo / Docente — Seleccione los filtros y genere el reporte académico.</p>
             </section>
 
-            <section>
-                <h3>Filtros del Reporte</h3>
-
+            <section id="filtros-reporte" class="p-4 mb-5">
+                <h3 class="fw-bold mb-3 border-bottom pb-2" style="color: #1a3c6e;">Filtros del Reporte</h3>
                 <form action="#" method="get">
-
-                    <div class="fila-campos">
-
-                        <div class="form-grupo">
-                            <label for="materia_rep">Materia</label>
-                            <select id="materia_rep" name="materia_rep" required>
-                                <option value="">-- Seleccionar materia --</option>
+                    <div class="row g-3 align-items-end">
+                        <div class="col-md-4">
+                            <label for="materia_rep" class="form-label fw-bold">Materia</label>
+                            <select class="form-select" id="materia_rep" name="materia_rep" required>
+                                <option value="">-- Seleccionar --</option>
                                 <option value="isis301">23758 Estructura de Datos</option>
                                 <option value="isis302">54125 Ingeniería de Software</option>
-                                <option value="mat201">26485 Cálculo Diferencial</option>
-                                <option value="red101">25485 Redes de Computadoras</option>
                             </select>
                         </div>
-
-                        <div class="form-grupo">
-                            <label for="periodo_rep">Período Académico</label>
-                            <select id="periodo_rep" name="periodo_rep" required>
-                                <option value="">-- Seleccionar período --</option>
+                        <div class="col-md-4">
+                            <label for="periodo_rep" class="form-label fw-bold">Período</label>
+                            <select class="form-select" id="periodo_rep" name="periodo_rep" required>
+                                <option value="">-- Seleccionar --</option>
                                 <option value="2026-1">2026-1 Primer Semestre</option>
                                 <option value="2025-2">2025-2 Segundo Semestre</option>
-                                <option value="2025-1">2026-3 Tercer Semestre</option>
                             </select>
                         </div>
-
-                        <div class="form-grupo">
-                            <label for="tipo_rep">Tipo de Reporte</label>
-                            <select id="tipo_rep" name="tipo_rep" required>
-                                <option value="">-- Seleccionar tipo --</option>
-                                <option value="rendimiento">Rendimiento general</option>
-                                <option value="aprobados">Lista de aprobados</option>
-                                <option value="reprobados">Lista de reprobados</option>
-                                <option value="promedios">Promedios por parcial</option>
-                            </select>
+                        <div class="col-md-4 d-grid">
+                            <button type="submit" class="btn btn-primary fw-bold">Consultar Vista Previa</button>
                         </div>
-
                     </div>
-
-                    <div class="fila-botones">
-                        <button type="submit">
-                            Consultar Vista Previa
-                        </button>
-                    </div>
-
                 </form>
             </section>
 
-            <section>
-                <h3>Vista Previa — ISIS-301 Estructura de Datos | 2026-1</h3>
-                <p class="subtitulo" style="text-align:left;">
-                    Generado por: Ing. Valeria Suárez &nbsp;|&nbsp; Fecha: 19/05/2026
-                </p>
-
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Estudiante</th>
-                            <th class="centrado">Parcial 1</th>
-                            <th class="centrado">Parcial 2</th>
-                            <th class="centrado">Parcial 3</th>
-                            <th class="centrado">Nota Final</th>
-                            <th class="centrado">Estado</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Tomalo Anndy</td>
-                            <td class="centrado">9.0</td>
-                            <td class="centrado">9.0</td>
-                            <td class="centrado">9.5</td>
-                            <td class="centrado"><strong>9.11</strong></td>
-                            <td class="centrado estado-aprobado">Aprobado</td>
-                        </tr>
-                        <tr>
-                            <td>Paredes Estefanía</td>
-                            <td class="centrado">8.25</td>
-                            <td class="centrado">8.5</td>
-                            <td class="centrado">8.0</td>
-                            <td class="centrado"><strong>8.25</strong></td>
-                            <td class="centrado estado-aprobado">Aprobado</td>
-                        </tr>
-                        <tr>
-                            <td>García Luis</td>
-                            <td class="centrado">7.83</td>
-                            <td class="centrado">7.5</td>
-                            <td class="centrado">8.0</td>
-                            <td class="centrado"><strong>7.78</strong></td>
-                            <td class="centrado estado-aprobado">Aprobado</td>
-                        </tr>
-                        <tr>
-                            <td>Mora Valeria</td>
-                            <td class="centrado">4.83</td>
-                            <td class="centrado">5.0</td>
-                            <td class="centrado">4.5</td>
-                            <td class="centrado"><strong>4.78</strong></td>
-                            <td class="centrado estado-reprobado">Reprobado</td>
-                        </tr>
-                        <tr>
-                            <td>Vega Carlos</td>
-                            <td class="centrado">8.0</td>
-                            <td class="centrado">7.5</td>
-                            <td class="centrado">8.5</td>
-                            <td class="centrado"><strong>8.0</strong></td>
-                            <td class="centrado estado-aprobado">Aprobado</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </section>
-
-            <aside class="bloque-stats">
-                <h3>Estadísticas del Reporte</h3>
-                <ul>
-                    <li><strong>Total de estudiantes:</strong> 5</li>
-                    <li>
-                        <strong>Aprobados:</strong> 4 &nbsp;(80%)
-                        <br>
-                        <progress value="80" max="100" style="accent-color:#1a3c6e;"></progress>
-                    </li>
-                    <li>
-                        <strong>Reprobados:</strong> 1 &nbsp;(20%)
-                        <br>
-                        <progress value="20" max="100" style="accent-color:#c0392b;"></progress>
-                    </li>
-                    <li><strong>Promedio general:</strong> 7.58</li>
-                    <li><strong>Nota mínima:</strong> 4.78</li>
-                    <li><strong>Nota máxima:</strong> 9.11</li>
-                </ul>
-
-                <div class="fila-botones">
-                    <button type="button" class="btn-grande btn-verde">
-                        Generar PDF
-                    </button>
+            <div class="row g-4">
+                <div class="col-lg-8">
+                    <section>
+                        <h3 class="fw-bold mb-2" style="color: #1a3c6e;">Vista Previa — ISIS-301 Estructura de Datos</h3>
+                        <p class="text-muted small">Generado por: Ing. Valeria Suárez | Fecha: 19/05/2026</p>
+                        <div class="table-responsive mt-3">
+                            <table class="table table-striped table-hover table-bordered align-middle">
+                                <thead class="text-center">
+                                    <tr>
+                                        <th scope="col">Estudiante</th>
+                                        <th scope="col">Parcial 1</th>
+                                        <th scope="col">Nota Final</th>
+                                        <th scope="col">Estado</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Tomalo Anndy Ismael</td>
+                                        <td class="text-center">9.0</td>
+                                        <td class="text-center fw-bold">9.11</td>
+                                        <td class="text-center"><span class="badge badge-aprobado px-3 py-2">Aprobado</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Mora Valeria</td>
+                                        <td class="text-center">4.83</td>
+                                        <td class="text-center fw-bold text-danger">4.78</td>
+                                        <td class="text-center"><span class="badge badge-reprobado px-3 py-2">Reprobado</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </section>
                 </div>
-            </aside>
 
+                <div class="col-lg-4">
+                    <aside class="estadisticas-panel p-4 h-100">
+                        <h3 class="fw-bold mb-4" style="color: #1a3c6e;">Estadísticas</h3>
+                        <ul class="list-unstyled">
+                            <li class="mb-2 border-bottom pb-2"><strong>Total de estudiantes:</strong> 5</li>
+                            <li class="mb-2 border-bottom pb-2">
+                                <strong>Aprobados:</strong> 4 (80%)
+                                <div class="progress mt-2" style="height: 12px;">
+                                    <div class="progress-bar bg-success" role="progressbar" style="width: 80%;"></div>
+                                </div>
+                            </li>
+                            <li class="mb-2 border-bottom pb-2">
+                                <strong>Reprobados:</strong> 1 (20%)
+                                <div class="progress mt-2" style="height: 12px;">
+                                    <div class="progress-bar bg-danger" role="progressbar" style="width: 20%;"></div>
+                                </div>
+                            </li>
+                            <li class="mt-3"><strong>Promedio general:</strong> 7.58</li>
+                        </ul>
+                        <div class="d-grid mt-4">
+                            <button type="button" class="btn btn-success fw-bold">Generar PDF</button>
+                        </div>
+                    </aside>
+                </div>
+            </div>
         </div>
     </main>
 
     <footer>
-        <p>&copy; 2025 Anndy Tomalo &mdash; Sistema de Gestión de Notas Universitarias</p>
+        <p>&copy; 2026 Anndy Tomalo &mdash; Sistema de Gestión de Notas Universitarias</p>
     </footer>
 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
