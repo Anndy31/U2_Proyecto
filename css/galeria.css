@@ -85,13 +85,13 @@
 @media (min-width: 992px) {
     /* Escritorio: 3 columnas */
     .grid-galeria {
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(4, 1fr);
         gap: 24px;
     }
     .galeria-item img {
         height: 200px;
     }
     .galeria-item-grande img {
-        height: 280px; /* La imagen grande destaca aún más */
+        height: 180px; /* La imagen grande destaca aún más */
     }
 }
