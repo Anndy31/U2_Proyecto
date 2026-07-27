@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard | UniNotas</title>
     <link rel="icon" href="Barra/3643769-building-home-house-main-menu-start_113416.ico">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Toastify -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
     <link rel="stylesheet" href="css/general.css">
     <link rel="stylesheet" href="css/principal.css">
@@ -27,17 +27,18 @@
             </button>
             <div class="collapse navbar-collapse" id="navMenu">
                 <ul class="navbar-nav mx-auto gap-1">
-                    <li class="nav-item"><a class="nav-link text-white" href="principal.html">Inicio</a></li>
-                    <li class="nav-item"><a class="nav-link text-white" href="docente.html">Panel Docente</a></li>
+                    <li class="nav-item" id="nav-inicio"><a class="nav-link text-white" href="principal.html">Inicio</a></li>
+                    <li class="nav-item" id="nav-panel-docente"><a class="nav-link text-white" href="docente.html">Panel Docente</a></li>
                     <li class="nav-item"><a class="nav-link text-white" href="reportes.html">Reportes</a></li>
                     <li class="nav-item"><a class="nav-link text-white" href="servicios.html">Servicios</a></li>
                     <li class="nav-item"><a class="nav-link text-white" href="galeria.html">Galería</a></li>
                     <li class="nav-item"><a class="nav-link text-white" href="acerca.html">Acerca de</a></li>
                     <li class="nav-item"><a class="nav-link text-white" href="contacto.html">Contacto</a></li>
                     <li class="nav-item"><a class="nav-link text-white" href="buscar.html">Buscar</a></li>
+                    <!-- btn-cerrar-sesion interceptado por estudiantes.js -->
                     <li class="nav-item mt-2 mt-lg-0">
                         <a id="btn-cerrar-sesion" class="nav-link btn-cerrar px-3 rounded ms-lg-2 text-center"
-                            href="index.html">Cerrar Sesión</a>
+                           href="index.html">Cerrar Sesión</a>
                     </li>
                 </ul>
             </div>
@@ -46,9 +47,10 @@
 
     <main class="container">
         <div class="card-uninotas shadow-sm">
+
             <!-- ── Bienvenida ── -->
             <section id="bienvenida" class="mb-4 p-4 rounded bg-light border-start border-5"
-                style="border-color: #1a3c6e !important;">
+                     style="border-color: #1a3c6e !important;">
                 <h2 class="text-center fw-bold" style="color: #1a3c6e;">
                     Bienvenido al Sistema UniNotas
                 </h2>
@@ -62,7 +64,8 @@
             </section>
 
             <!-- ── Frase motivacional ── -->
-            <section class="mb-4 p-3 rounded text-center" style="background:#f0f4ff; border-left: 4px solid #1a3c6e;">
+            <section class="mb-4 p-3 rounded text-center"
+                     style="background:#f0f4ff; border-left: 4px solid #1a3c6e;">
                 <p id="frase-texto" class="fst-italic mb-1 text-muted">Cargando frase...</p>
                 <small id="frase-autor" class="fw-bold" style="color:#1a3c6e;"></small>
             </section>
@@ -72,19 +75,22 @@
                 <div class="row g-3 text-center">
                     <div class="col-sm-4">
                         <div class="p-3 rounded shadow-sm" style="background:#e8f5e9;">
-                            <div class="fs-2 fw-bold" style="color:#1e7e34;" id="resumen-aprobadas">—</div>
+                            <div class="fs-2 fw-bold" style="color:#1e7e34;"
+                                 id="resumen-aprobadas">—</div>
                             <small class="text-muted">Materias Aprobadas</small>
                         </div>
                     </div>
                     <div class="col-sm-4">
                         <div class="p-3 rounded shadow-sm" style="background:#fdecea;">
-                            <div class="fs-2 fw-bold text-danger" id="resumen-reprobadas">—</div>
+                            <div class="fs-2 fw-bold text-danger"
+                                 id="resumen-reprobadas">—</div>
                             <small class="text-muted">Materias Reprobadas</small>
                         </div>
                     </div>
                     <div class="col-sm-4">
                         <div class="p-3 rounded shadow-sm" style="background:#e3f2fd;">
-                            <div class="fs-2 fw-bold" style="color:#1a3c6e;" id="resumen-promedio">—</div>
+                            <div class="fs-2 fw-bold" style="color:#1a3c6e;"
+                                 id="resumen-promedio">—</div>
                             <small class="text-muted">Promedio General</small>
                         </div>
                     </div>
@@ -101,6 +107,7 @@
                     &nbsp;|&nbsp;
                     <span id="semestre-estudiante"></span>
                 </p>
+
                 <div class="table-responsive">
                     <table class="table table-striped table-hover table-bordered align-middle">
                         <thead class="text-center">
@@ -114,6 +121,7 @@
                                 <th scope="col">Estado</th>
                             </tr>
                         </thead>
+                        <!-- tbody llenado dinámicamente por estudiantes.js -->
                         <tbody id="tbody-calificaciones">
                             <tr>
                                 <td colspan="7" class="text-center text-muted py-3">
@@ -124,6 +132,7 @@
                     </table>
                 </div>
             </section>
+
         </div>
     </main>
 
@@ -131,6 +140,7 @@
         <p>&copy; 2026 Anndy Tomalo &mdash; Sistema de Gestión de Notas Universitarias</p>
     </footer>
 
+    <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <!-- SweetAlert2 -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
@@ -144,5 +154,4 @@
     <script src="js/validaciones.js"></script>
     <script src="js/estudiantes.js"></script>
 </body>
-
 </html>

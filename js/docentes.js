@@ -12,7 +12,10 @@
    - Manejar cerrar sesión con confirmación
    ============================================================ */
 
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", async () => {
+
+    /* ── 0. Inicializar datos si es primera visita ── */
+    await UniAPI.inicializarDatos();
 
     /* ── 1. Protección: solo docentes ── */
     const sesion = UniUtils.requiereAutenticacion();
@@ -24,7 +27,11 @@ document.addEventListener("DOMContentLoaded", () => {
         return;
     }
 
-    /* ── 2. Datos del docente logueado ── */
+    /* ── 2. Ocultar "Inicio" del navbar ya que es el dashboard del estudiante ── */
+    const navInicio = document.getElementById("nav-inicio");
+    if (navInicio) navInicio.style.display = "none";
+
+    /* ── Datos del docente logueado ── */
     const docentes  = UniStorage.leerColeccion(UniStorage.CLAVES.DOCENTES);
     const materias  = UniStorage.leerColeccion(UniStorage.CLAVES.MATERIAS);
     const periodos  = UniStorage.leerColeccion(UniStorage.CLAVES.PERIODOS);
@@ -33,6 +40,16 @@ document.addEventListener("DOMContentLoaded", () => {
     const docente       = docentes.find((d) => d.id === sesion.refId);
     const materia       = docente ? materias.find((m) => m.codigo === docente.materia_id) : null;
     const periodoActivo = periodos.find((p) => p.activo) ?? { id: "2026-1", nombre: "2026-1" };
+
+    /* Si no se encontró la materia mostrar error visible */
+    if (!materia) {
+        const tbody = document.getElementById("tbody-docente");
+        if (tbody) tbody.innerHTML = `<tr><td colspan="7" class="text-center text-danger py-3">
+            ⚠️ No se encontró la materia asignada para este docente (refId: ${sesion.refId}).
+            Intenta restaurar los datos originales.</td></tr>`;
+        UniUI.toastError("No se pudo cargar la materia del docente. Verifica los datos.");
+        return;
+    }
 
     /* ── 3. Inyectar datos en el header del panel ── */
     const elDocente = document.getElementById("docente-nombre");
@@ -96,13 +113,35 @@ document.addEventListener("DOMContentLoaded", () => {
     /* ── 5. Llenar select de estudiantes en el formulario ── */
     const selectEst = document.getElementById("estudiante_sel");
     if (selectEst && materia) {
-        const califs = UniStorage.leerColeccion(UniStorage.CLAVES.CALIFICACIONES);
-        /* Mostrar todos los estudiantes (tienen o no calificación en esta materia) */
         estudiantesDB.forEach((est) => {
             const opt = document.createElement("option");
             opt.value = est.id;
             opt.textContent = `${est.apellidos} ${est.nombres}`;
             selectEst.appendChild(opt);
+        });
+
+        /* Al seleccionar un estudiante, precargar sus notas si ya existen */
+        selectEst.addEventListener("change", () => {
+            const califs = UniStorage.leerColeccion(UniStorage.CLAVES.CALIFICACIONES);
+            const existe = califs.find(
+                (c) => c.estudiante_id === selectEst.value
+                    && c.materia_codigo === materia.codigo
+                    && c.periodo_id    === periodoActivo.id
+            );
+            const campoP1 = document.getElementById("nota_tarea");
+            const campoP2 = document.getElementById("nota_proyecto");
+            const campoP3 = document.getElementById("nota_examen");
+
+            if (existe) {
+                campoP1.value = existe.parcial1 ?? "";
+                campoP2.value = existe.parcial2 ?? "";
+                campoP3.value = existe.parcial3 ?? "";
+                UniUI.toastInfo("Notas existentes cargadas. Puedes modificarlas.");
+            } else {
+                campoP1.value = "";
+                campoP2.value = "";
+                campoP3.value = "";
+            }
         });
     }
 
