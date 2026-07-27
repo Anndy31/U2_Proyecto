@@ -1,0 +1,10 @@
+[
+  { "id": "C001", "estudiante_id": "E001", "materia_codigo": "23758", "periodo_id": "2026-1", "parcial1": 9.0,  "parcial2": 9.0, "parcial3": 9.5, "promedio_final": 9.11, "estado": "Aprobado"  },
+  { "id": "C002", "estudiante_id": "E001", "materia_codigo": "54125", "periodo_id": "2026-1", "parcial1": 7.0,  "parcial2": 8.0, "parcial3": 7.5, "promedio_final": 7.50, "estado": "Aprobado"  },
+  { "id": "C003", "estudiante_id": "E001", "materia_codigo": "26485", "periodo_id": "2026-1", "parcial1": 6.0,  "parcial2": 7.0, "parcial3": 6.5, "promedio_final": 6.50, "estado": "Reprobado" },
+  { "id": "C004", "estudiante_id": "E001", "materia_codigo": "25485", "periodo_id": "2026-1", "parcial1": 10.0, "parcial2": 9.0, "parcial3": 9.5, "promedio_final": 9.50, "estado": "Aprobado"  },
+  { "id": "C005", "estudiante_id": "E002", "materia_codigo": "23758", "periodo_id": "2026-1", "parcial1": 8.25, "parcial2": 8.5, "parcial3": 8.0, "promedio_final": 8.25, "estado": "Aprobado"  },
+  { "id": "C006", "estudiante_id": "E003", "materia_codigo": "23758", "periodo_id": "2026-1", "parcial1": 7.83, "parcial2": 7.5, "parcial3": 8.0, "promedio_final": 7.78, "estado": "Aprobado"  },
+  { "id": "C007", "estudiante_id": "E004", "materia_codigo": "23758", "periodo_id": "2026-1", "parcial1": 4.83, "parcial2": 5.0, "parcial3": 4.5, "promedio_final": 4.78, "estado": "Reprobado" },
+  { "id": "C008", "estudiante_id": "E005", "materia_codigo": "23758", "periodo_id": "2026-1", "parcial1": 8.0,  "parcial2": 7.5, "parcial3": 8.5, "promedio_final": 8.00, "estado": "Aprobado"  }
+]

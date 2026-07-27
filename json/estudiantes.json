@@ -1,0 +1,57 @@
+[
+  {
+    "id": "E001",
+    "cedula": "1750123456",
+    "nombres": "Anndy Ismael",
+    "apellidos": "Tomalo",
+    "correo": "aitomalo@espe.edu.ec",
+    "semestre": 6,
+    "periodo_ingreso": "2024-1",
+    "estado_academico": "Activo",
+    "nacionalidad": "Ecuador"
+  },
+  {
+    "id": "E002",
+    "cedula": "1745678901",
+    "nombres": "Estefanía",
+    "apellidos": "Paredes",
+    "correo": "eparedes@espe.edu.ec",
+    "semestre": 6,
+    "periodo_ingreso": "2024-1",
+    "estado_academico": "Activo",
+    "nacionalidad": "Ecuador"
+  },
+  {
+    "id": "E003",
+    "cedula": "1738901234",
+    "nombres": "Luis",
+    "apellidos": "García",
+    "correo": "lgarcia@espe.edu.ec",
+    "semestre": 6,
+    "periodo_ingreso": "2024-1",
+    "estado_academico": "Activo",
+    "nacionalidad": "Ecuador"
+  },
+  {
+    "id": "E004",
+    "cedula": "1762345678",
+    "nombres": "Valeria",
+    "apellidos": "Mora",
+    "correo": "vmora@espe.edu.ec",
+    "semestre": 6,
+    "periodo_ingreso": "2024-1",
+    "estado_academico": "Activo",
+    "nacionalidad": "Ecuador"
+  },
+  {
+    "id": "E005",
+    "cedula": "1729876543",
+    "nombres": "Carlos",
+    "apellidos": "Vega",
+    "correo": "cvega@espe.edu.ec",
+    "semestre": 6,
+    "periodo_ingreso": "2024-1",
+    "estado_academico": "Activo",
+    "nacionalidad": "Ecuador"
+  }
+]

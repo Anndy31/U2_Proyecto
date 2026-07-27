@@ -1,0 +1,11 @@
+[
+  { "id": "U001", "correo": "aitomalo@espe.edu.ec",  "password": "uninotas123", "rol": "estudiante", "refId": "E001", "nombreCompleto": "Anndy Ismael Tomalo" },
+  { "id": "U002", "correo": "eparedes@espe.edu.ec",  "password": "uninotas123", "rol": "estudiante", "refId": "E002", "nombreCompleto": "Estefanía Paredes" },
+  { "id": "U003", "correo": "lgarcia@espe.edu.ec",   "password": "uninotas123", "rol": "estudiante", "refId": "E003", "nombreCompleto": "Luis García" },
+  { "id": "U004", "correo": "vmora@espe.edu.ec",     "password": "uninotas123", "rol": "estudiante", "refId": "E004", "nombreCompleto": "Valeria Mora" },
+  { "id": "U005", "correo": "cvega@espe.edu.ec",     "password": "uninotas123", "rol": "estudiante", "refId": "E005", "nombreCompleto": "Carlos Vega" },
+  { "id": "U006", "correo": "lbeltran@espe.edu.ec",  "password": "docente123",  "rol": "docente",    "refId": "D001", "nombreCompleto": "Ing. Luis Beltran" },
+  { "id": "U007", "correo": "vsuarez@espe.edu.ec",   "password": "docente123",  "rol": "docente",    "refId": "D002", "nombreCompleto": "Ing. Valeria Suárez" },
+  { "id": "U008", "correo": "mandrade@espe.edu.ec",  "password": "docente123",  "rol": "docente",    "refId": "D003", "nombreCompleto": "Ing. Marco Andrade" },
+  { "id": "U009", "correo": "ggnarvaez@espe.edu.ec", "password": "docente123",  "rol": "docente",    "refId": "D004", "nombreCompleto": "Ing. Gabriel Gustavo Narváez" }
+]

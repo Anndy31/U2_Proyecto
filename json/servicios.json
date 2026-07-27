@@ -1,0 +1,8 @@
+[
+  { "id": "SRV001", "nombre": "Consulta de Calificaciones",     "descripcion": "Accede a tus notas parciales y finales en tiempo real desde cualquier dispositivo.",           "disponible": true },
+  { "id": "SRV002", "nombre": "Descarga de Boletín de Notas",   "descripcion": "Genera y descarga tu boletín de notas oficial en formato PDF con un solo clic.",                 "disponible": true },
+  { "id": "SRV003", "nombre": "Promedio Ponderado",             "descripcion": "Visualiza el promedio ponderado por materia y semestre de manera detallada.",                     "disponible": true },
+  { "id": "SRV004", "nombre": "Calendario Académico",           "descripcion": "Accede al calendario con fechas de parciales, exámenes y períodos de recalificación.",            "disponible": true },
+  { "id": "SRV005", "nombre": "Estado Académico",               "descripcion": "Revisa el estado de aprobación o reprobación por cada materia matriculada.",                      "disponible": true },
+  { "id": "SRV006", "nombre": "Notificaciones Institucionales", "descripcion": "Recibe avisos y comunicados importantes de la institución directamente en el sistema.",           "disponible": true }
+]
