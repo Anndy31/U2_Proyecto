@@ -147,22 +147,38 @@ async function restaurarDatosOriginales() {
 }
 
 /**
- * API externa 1 — REST Countries
- * Devuelve un array de nombres de país ordenado alfabéticamente.
- * Útil para el <select> de nacionalidad en registro.html.
+ * API externa 1 — countries.dev
+ * Devuelve un array de países { nombre, codigo, bandera } ordenado
+ * alfabéticamente. Alimenta el selector personalizado de nacionalidad
+ * en registro.html (búsqueda en vivo + bandera).
  */
 async function obtenerPaises() {
     try {
-        const res = await fetch("https://restcountries.com/v3.1/all?fields=name");
+        const res = await fetch("https://countries.dev/countries?fields=name,alpha2Code,flag");
         if (!res.ok) throw new Error(`HTTP ${res.status}`);
         const datos = await res.json();
         return datos
-            .map((p) => p?.name?.common)
-            .filter(Boolean)
-            .sort((a, b) => a.localeCompare(b));
+            .map((p) => ({
+                nombre: p?.name,
+                codigo: p?.alpha2Code,
+                bandera: p?.flag ?? "🏳️"
+            }))
+            .filter((p) => Boolean(p.nombre))
+            .sort((a, b) => a.nombre.localeCompare(b.nombre));
     } catch (e) {
         console.warn("[API] obtenerPaises falló → respaldo mínimo.", e.message);
-        return ["Ecuador","Colombia","Perú","México","España","Argentina","Chile","Venezuela","Bolivia","Paraguay"];
+        return [
+            { nombre: "Ecuador",   codigo: "EC", bandera: "🇪🇨" },
+            { nombre: "Colombia",  codigo: "CO", bandera: "🇨🇴" },
+            { nombre: "Perú",      codigo: "PE", bandera: "🇵🇪" },
+            { nombre: "México",    codigo: "MX", bandera: "🇲🇽" },
+            { nombre: "España",    codigo: "ES", bandera: "🇪🇸" },
+            { nombre: "Argentina", codigo: "AR", bandera: "🇦🇷" },
+            { nombre: "Chile",     codigo: "CL", bandera: "🇨🇱" },
+            { nombre: "Venezuela", codigo: "VE", bandera: "🇻🇪" },
+            { nombre: "Bolivia",   codigo: "BO", bandera: "🇧🇴" },
+            { nombre: "Paraguay",  codigo: "PY", bandera: "🇵🇾" }
+        ];
     }
 }
 

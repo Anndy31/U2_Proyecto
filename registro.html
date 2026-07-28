@@ -62,23 +62,48 @@
                             <option value="otro">Prefiero no decir</option>
                         </select>
                     </div>
-                    <!-- Campo Nacionalidad — llenado dinámicamente por registro.js via API -->
+                    <!-- Campo Nacionalidad — selector personalizado con búsqueda y bandera,
+                         llenado dinámicamente por registro.js vía countries.dev -->
                     <div class="mb-3">
-                        <label for="nacionalidad" class="form-label fw-bold">Nacionalidad</label>
-                        <select class="form-select bg-light" id="nacionalidad" name="nacionalidad" required>
-                            <option value="">Cargando países...</option>
-                        </select>
+                        <label for="nacionalidad_buscar" class="form-label fw-bold">Nacionalidad</label>
+                        <div class="selector-pais position-relative">
+                            <input type="text" class="form-control bg-light" id="nacionalidad_buscar"
+                                placeholder="Cargando países..." autocomplete="off" />
+                            <!-- Campo real que se envía / valida — se llena al elegir un país de la lista -->
+                            <input type="hidden" id="nacionalidad" name="nacionalidad" />
+                            <ul id="nacionalidad_lista" class="list-group selector-pais-lista shadow-sm"></ul>
+                        </div>
                     </div>
                     <div class="mb-3">
                         <label for="correo_registro" class="form-label fw-bold">Correo Institucional</label>
                         <input type="email" class="form-control bg-light" id="correo_registro" name="correo_registro"
                             placeholder="correo@universidad.edu.ec" required />
                     </div>
-                    <div class="mb-4">
+                    <div class="mb-3">
                         <label for="contrasena_registro" class="form-label fw-bold">Contraseña</label>
                         <input type="password" class="form-control bg-light" id="contrasena_registro"
                             name="contrasena_registro" placeholder="Entre 8 y 16 caracteres" minlength="8"
                             maxlength="16" required />
+                    </div>
+                    <div class="mb-4">
+                        <label for="confirmar_contrasena_registro" class="form-label fw-bold">Confirmar Contraseña</label>
+                        <input type="password" class="form-control bg-light" id="confirmar_contrasena_registro"
+                            name="confirmar_contrasena_registro" placeholder="Repite tu contraseña" minlength="8"
+                            maxlength="16" required />
+                    </div>
+                    <div class="mb-4">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="terminos_registro"
+                                name="terminos_registro" required />
+                            <label class="form-check-label" for="terminos_registro">
+                                Acepto los
+                                <a href="#" data-bs-toggle="modal" data-bs-target="#modalTerminos">términos y condiciones</a>
+                                de UniNotas
+                            </label>
+                        </div>
+                        <div id="terminos-feedback" class="text-danger small mt-1" style="display:none;">
+                            Debes aceptar los términos y condiciones para continuar.
+                        </div>
                     </div>
                     <div class="d-grid mt-2">
                         <button type="submit" class="btn btn-success btn-lg fw-bold">Registrarme</button>
@@ -90,6 +115,33 @@
             </p>
         </div>
     </main>
+
+    <!-- Modal de Términos y Condiciones -->
+    <div class="modal fade" id="modalTerminos" tabindex="-1" aria-labelledby="modalTerminosLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title fw-bold" id="modalTerminosLabel" style="color:#1a3c6e;">
+                        Términos y Condiciones — UniNotas
+                    </h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Al registrarte en UniNotas aceptas lo siguiente:</p>
+                    <ol>
+                        <li>La información académica y personal ingresada es de uso exclusivo dentro del sistema de gestión de notas de la institución.</li>
+                        <li>Eres responsable de mantener la confidencialidad de tu contraseña y de toda actividad realizada desde tu cuenta.</li>
+                        <li>Los datos almacenados (calificaciones, usuarios, materias) se guardan localmente en tu navegador con fines académicos y educativos.</li>
+                        <li>UniNotas es un proyecto académico desarrollado para la asignatura de Fundamentos Web y no reemplaza los sistemas oficiales de la institución.</li>
+                        <li>El mal uso de la plataforma o el registro de información falsa puede derivar en la suspensión de la cuenta.</li>
+                    </ol>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-success" data-bs-dismiss="modal">Entendido</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <footer>
         <p>&copy; 2026 Anndy Tomalo &mdash; Sistema de Gestión de Notas Universitarias</p>

@@ -57,6 +57,8 @@ function limpiarValidaciones(formulario) {
     formulario.querySelectorAll(".invalid-feedback").forEach((el) => {
         el.textContent = "";
     });
+    const feedbackTerminos = formulario.querySelector("#terminos-feedback");
+    if (feedbackTerminos) feedbackTerminos.style.display = "none";
 }
 
 /* ------------------------------------------------------------------ */
@@ -136,7 +138,8 @@ function validarRegistro(campos) {
 
     const {
         nombres, apellidos, cedula, fechaNac,
-        genero, semestre, correo, password
+        genero, semestre, correo, password,
+        confirmarPassword, terminos
     } = campos;
 
     /* Nombres */
@@ -194,6 +197,26 @@ function validarRegistro(campos) {
         _marcarInvalido(password, "La contraseña debe tener entre 8 y 16 caracteres.");
         valido = false;
     } else { _marcarValido(password); }
+
+    /* Confirmación de contraseña */
+    if (!confirmarPassword.value) {
+        _marcarInvalido(confirmarPassword, "Confirma tu contraseña.");
+        valido = false;
+    } else if (confirmarPassword.value !== password.value) {
+        _marcarInvalido(confirmarPassword, "Las contraseñas no coinciden.");
+        valido = false;
+    } else { _marcarValido(confirmarPassword); }
+
+    /* Aceptación de términos y condiciones */
+    const feedbackTerminos = document.getElementById("terminos-feedback");
+    if (!terminos.checked) {
+        terminos.classList.add("is-invalid");
+        if (feedbackTerminos) feedbackTerminos.style.display = "block";
+        valido = false;
+    } else {
+        terminos.classList.remove("is-invalid");
+        if (feedbackTerminos) feedbackTerminos.style.display = "none";
+    }
 
     if (!valido) return { valido: false, datos: null };
 

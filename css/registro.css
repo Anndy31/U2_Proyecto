@@ -66,3 +66,43 @@
         box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
     }
 }
+/* ===== Selector personalizado de nacionalidad (con búsqueda y bandera) ===== */
+.selector-pais-lista {
+    position: absolute;
+    top: calc(100% + 4px);
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    max-height: 230px;
+    overflow-y: auto;
+    display: none;
+    border-radius: 8px;
+    background: #ffffff;
+}
+
+.selector-pais-lista.mostrar {
+    display: block;
+}
+
+.selector-pais-lista .list-group-item {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    border-left: none;
+    border-right: none;
+}
+
+.selector-pais-lista .list-group-item:first-child {
+    border-top: none;
+}
+
+.selector-pais-lista .list-group-item:hover,
+.selector-pais-lista .list-group-item.resaltado {
+    background-color: #e9f7ee;
+}
+
+.selector-pais-lista .bandera-pais {
+    font-size: 1.15rem;
+    line-height: 1;
+}

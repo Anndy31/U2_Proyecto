@@ -16,19 +16,74 @@ document.addEventListener("DOMContentLoaded", async () => {
     /* Inicializar datos si es necesario */
     await UniAPI.inicializarDatos();
 
-    /* ── Cargar países en el select ── */
-    const selectNacionalidad = document.getElementById("nacionalidad");
-    if (selectNacionalidad) {
-        UniUI.mostrarSpinner(true);
-        const paises = await UniAPI.obtenerPaises();
-        UniUI.mostrarSpinner(false);
+    /* ── Selector personalizado de nacionalidad (búsqueda + bandera) ── */
+    const inputBuscarPais = document.getElementById("nacionalidad_buscar");
+    const inputPaisValor  = document.getElementById("nacionalidad");
+    const listaPaises     = document.getElementById("nacionalidad_lista");
+    let paisesDisponibles = [];
 
-        paises.forEach((pais) => {
-            const opt = document.createElement("option");
-            opt.value = pais;
-            opt.textContent = pais;
-            if (pais === "Ecuador") opt.selected = true;
-            selectNacionalidad.appendChild(opt);
+    if (inputBuscarPais && inputPaisValor && listaPaises) {
+        UniUI.mostrarSpinner(true);
+        paisesDisponibles = await UniAPI.obtenerPaises();
+        UniUI.mostrarSpinner(false);
+        inputBuscarPais.placeholder = "Escribe para buscar tu país...";
+
+        /* Renderiza la lista filtrada según lo que el usuario escribe */
+        function renderizarListaPaises(filtro = "") {
+            const texto = filtro.trim().toLowerCase();
+            const filtrados = texto
+                ? paisesDisponibles.filter((p) => p.nombre.toLowerCase().includes(texto))
+                : paisesDisponibles;
+
+            listaPaises.innerHTML = "";
+
+            if (filtrados.length === 0) {
+                listaPaises.innerHTML = `<li class="list-group-item text-muted">Sin coincidencias</li>`;
+            } else {
+                filtrados.slice(0, 60).forEach((pais) => {
+                    const li = document.createElement("li");
+                    li.className = "list-group-item list-group-item-action";
+                    li.dataset.nombre = pais.nombre;
+                    li.innerHTML = `
+                        <span class="bandera-pais">${pais.bandera}</span>
+                        <span>${UniUtils.escaparHTML(pais.nombre)}</span>`;
+                    listaPaises.appendChild(li);
+                });
+            }
+            listaPaises.classList.add("mostrar");
+        }
+
+        /* Preseleccionar Ecuador por defecto */
+        const ecuador = paisesDisponibles.find((p) => p.nombre === "Ecuador") ?? paisesDisponibles[0];
+        if (ecuador) {
+            inputBuscarPais.value = `${ecuador.bandera} ${ecuador.nombre}`;
+            inputPaisValor.value  = ecuador.nombre;
+        }
+
+        inputBuscarPais.addEventListener("focus", () => renderizarListaPaises(inputBuscarPais.value.replace(/^\S+\s/, "")));
+
+        inputBuscarPais.addEventListener("input", () => {
+            inputPaisValor.value = ""; // se invalida hasta que elijan una opción válida de la lista
+            renderizarListaPaises(inputBuscarPais.value);
+        });
+
+        /* Delegación de eventos: la lista se regenera en cada búsqueda,
+           así que el click se escucha en el contenedor <ul>, no en cada <li>. */
+        listaPaises.addEventListener("click", (e) => {
+            const item = e.target.closest("li[data-nombre]");
+            if (!item) return;
+            const pais = paisesDisponibles.find((p) => p.nombre === item.dataset.nombre);
+            if (!pais) return;
+            inputBuscarPais.value = `${pais.bandera} ${pais.nombre}`;
+            inputPaisValor.value  = pais.nombre;
+            listaPaises.classList.remove("mostrar");
+        });
+
+        /* Cerrar la lista al hacer click fuera del selector */
+        document.addEventListener("click", (e) => {
+            if (!e.target.closest(".selector-pais")) {
+                listaPaises.classList.remove("mostrar");
+            }
         });
     }
 
@@ -43,8 +98,11 @@ document.addEventListener("DOMContentLoaded", async () => {
         fechaNac: document.getElementById("fecha_nacimiento"),
         genero: document.getElementById("genero"),
         semestre: document.getElementById("semestre"),
+        nacionalidad: document.getElementById("nacionalidad"),
         correo: document.getElementById("correo_registro"),
-        password: document.getElementById("contrasena_registro")
+        password: document.getElementById("contrasena_registro"),
+        confirmarPassword: document.getElementById("confirmar_contrasena_registro"),
+        terminos: document.getElementById("terminos_registro")
     };
 
     form.addEventListener("submit", async (e) => {
@@ -69,7 +127,7 @@ document.addEventListener("DOMContentLoaded", async () => {
             semestre: datos.semestre,
             periodo_ingreso: "2026-1",
             estado_academico: "Activo",
-            nacionalidad: selectNacionalidad ? selectNacionalidad.value : "Ecuador"
+            nacionalidad: datos.nacionalidad
         };
 
         /* Crear nuevo usuario */
