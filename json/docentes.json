@@ -1,6 +1,58 @@
 [
-  { "id": "D001", "nombre": "Ing. Luis Beltran",           "titulo": "Magíster en Ingeniería de Sistemas",    "materia_id": "23758", "correo": "lbeltran@espe.edu.ec" },
-  { "id": "D002", "nombre": "Ing. Valeria Suárez",         "titulo": "Magíster en Ingeniería de Software",    "materia_id": "54125", "correo": "vsuarez@espe.edu.ec" },
-  { "id": "D003", "nombre": "Ing. Marco Andrade",          "titulo": "Magíster en Matemáticas Aplicadas",     "materia_id": "26485", "correo": "mandrade@espe.edu.ec" },
-  { "id": "D004", "nombre": "Ing. Gabriel Gustavo Narváez","titulo": "Magíster en Telecomunicaciones",        "materia_id": "25485", "correo": "ggnarvaez@espe.edu.ec" }
+  {
+    "id": "D001",
+    "nombre": "Ing. Luis Beltran",
+    "titulo": "Magíster en Ingeniería de Sistemas",
+    "materia_id": "23758",
+    "correo": "lbeltran@espe.edu.ec"
+  },
+  {
+    "id": "D002",
+    "nombre": "Ing. Valeria Suárez",
+    "titulo": "Magíster en Ingeniería de Software",
+    "materia_id": "54125",
+    "correo": "vsuarez@espe.edu.ec"
+  },
+  {
+    "id": "D003",
+    "nombre": "Ing. Marco Andrade",
+    "titulo": "Magíster en Matemáticas Aplicadas",
+    "materia_id": "26485",
+    "correo": "mandrade@espe.edu.ec"
+  },
+  {
+    "id": "D004",
+    "nombre": "Ing. Gabriel Gustavo Narváez",
+    "titulo": "Magíster en Telecomunicaciones",
+    "materia_id": "25485",
+    "correo": "ggnarvaez@espe.edu.ec"
+  },
+  {
+    "id": "D005",
+    "nombre": "Ing. Patricia Villacís",
+    "titulo": "Magíster en Bases de Datos",
+    "materia_id": "31290",
+    "correo": "pvillacis@espe.edu.ec"
+  },
+  {
+    "id": "D006",
+    "nombre": "Ing. Fernando Chuquimarca",
+    "titulo": "Magíster en Ciencias de la Computación",
+    "materia_id": "48213",
+    "correo": "fchuquimarca@espe.edu.ec"
+  },
+  {
+    "id": "D007",
+    "nombre": "Ing. Daniela Ortiz",
+    "titulo": "Magíster en Desarrollo Web",
+    "materia_id": "39027",
+    "correo": "dortiz@espe.edu.ec"
+  },
+  {
+    "id": "D008",
+    "nombre": "Ing. Ramiro Salazar",
+    "titulo": "Magíster en Seguridad Informática",
+    "materia_id": "56710",
+    "correo": "rsalazar@espe.edu.ec"
+  }
 ]

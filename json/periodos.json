@@ -1,5 +1,23 @@
 [
-  { "id": "2026-1", "nombre": "Primer Semestre 2026",   "activo": true,  "inicio": "2026-04-14", "fin": "2026-08-20" },
-  { "id": "2025-2", "nombre": "Segundo Semestre 2025",  "activo": false, "inicio": "2025-10-01", "fin": "2026-02-28" },
-  { "id": "2025-1", "nombre": "Primer Semestre 2025",   "activo": false, "inicio": "2025-04-14", "fin": "2025-08-20" }
+  {
+    "id": "2026-1",
+    "nombre": "Primer Semestre 2026",
+    "activo": true,
+    "inicio": "2026-04-14",
+    "fin": "2026-08-20"
+  },
+  {
+    "id": "2025-2",
+    "nombre": "Segundo Semestre 2025",
+    "activo": false,
+    "inicio": "2025-10-01",
+    "fin": "2026-02-28"
+  },
+  {
+    "id": "2025-1",
+    "nombre": "Primer Semestre 2025",
+    "activo": false,
+    "inicio": "2025-04-14",
+    "fin": "2025-08-20"
+  }
 ]

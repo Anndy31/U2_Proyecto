@@ -44,7 +44,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     /* Si no se encontró la materia mostrar error visible */
     if (!materia) {
         const tbody = document.getElementById("tbody-docente");
-        if (tbody) tbody.innerHTML = `<tr><td colspan="7" class="text-center text-danger py-3">
+        if (tbody) tbody.innerHTML = `<tr><td colspan="8" class="text-center text-danger py-3">
             ⚠️ No se encontró la materia asignada para este docente (refId: ${sesion.refId}).
             Intenta restaurar los datos originales.</td></tr>`;
         UniUI.toastError("No se pudo cargar la materia del docente. Verifica los datos.");
@@ -76,7 +76,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         tbody.innerHTML = "";
 
         if (califMateria.length === 0) {
-            tbody.innerHTML = `<tr><td colspan="7" class="text-center text-muted py-3">
+            tbody.innerHTML = `<tr><td colspan="8" class="text-center text-muted py-3">
                 Sin estudiantes registrados para esta materia.</td></tr>`;
             return;
         }
@@ -94,6 +94,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
             const tr = document.createElement("tr");
             tr.dataset.calId = cal.id;
+            tr.dataset.estudianteId = cal.estudiante_id;
             tr.innerHTML = `
                 <td class="text-center">${idx + 1}</td>
                 <td>${nombreEst}</td>
@@ -103,12 +104,81 @@ document.addEventListener("DOMContentLoaded", async () => {
                 <td class="text-center ${clsProm}">${promedio}</td>
                 <td class="text-center">
                     <span class="badge ${clsBadge} px-3 py-2">${estado}</span>
+                </td>
+                <td class="text-center text-nowrap">
+                    <button type="button" class="btn btn-sm btn-outline-primary btn-editar-cal"
+                            data-cal-id="${cal.id}" title="Editar calificación">
+                        ✏️ Editar
+                    </button>
+                    <button type="button" class="btn btn-sm btn-outline-danger btn-eliminar-cal"
+                            data-cal-id="${cal.id}" title="Eliminar calificación">
+                        🗑️ Eliminar
+                    </button>
                 </td>`;
             tbody.appendChild(tr);
         });
     }
 
     cargarTabla();
+
+    /* ── 4.1 Delegación de eventos — Editar / Eliminar por fila ──
+       Se delega en el <tbody>, ya que las filas se crean dinámicamente
+       en cada llamada a cargarTabla(). ── */
+    const tbodyDocente = document.getElementById("tbody-docente");
+    if (tbodyDocente) {
+        tbodyDocente.addEventListener("click", async (e) => {
+            const btnEditar   = e.target.closest(".btn-editar-cal");
+            const btnEliminar = e.target.closest(".btn-eliminar-cal");
+
+            /* ---- Editar: precarga el formulario con los datos actuales ---- */
+            if (btnEditar) {
+                const calId = btnEditar.dataset.calId;
+                const califs = UniStorage.leerColeccion(UniStorage.CLAVES.CALIFICACIONES);
+                const cal = califs.find((c) => c.id === calId);
+                if (!cal) return;
+
+                const campoEst = document.getElementById("estudiante_sel");
+                const campoP1  = document.getElementById("nota_tarea");
+                const campoP2  = document.getElementById("nota_proyecto");
+                const campoP3  = document.getElementById("nota_examen");
+
+                if (campoEst) campoEst.value = cal.estudiante_id;
+                if (campoP1)  campoP1.value  = cal.parcial1 ?? "";
+                if (campoP2)  campoP2.value  = cal.parcial2 ?? "";
+                if (campoP3)  campoP3.value  = cal.parcial3 ?? "";
+
+                document.getElementById("form-notas")?.scrollIntoView({ behavior: "smooth", block: "center" });
+                campoP1?.focus();
+                UniUI.toastInfo("Datos cargados en el formulario. Modifica y presiona Guardar.");
+                return;
+            }
+
+            /* ---- Eliminar: confirmación con SweetAlert2 antes de borrar ---- */
+            if (btnEliminar) {
+                const calId = btnEliminar.dataset.calId;
+                const fila  = btnEliminar.closest("tr");
+                const nombreEst = fila?.children?.[1]?.textContent?.trim() ?? "este registro";
+
+                const ok = await UniUI.confirmar(
+                    "¿Eliminar calificación?",
+                    `Se eliminará permanentemente la calificación de ${nombreEst} en ${materia.nombre}.`,
+                    "Sí, eliminar"
+                );
+                if (!ok) return;
+
+                const eliminado = UniStorage.eliminarElemento(
+                    UniStorage.CLAVES.CALIFICACIONES, "id", calId
+                );
+
+                if (eliminado) {
+                    UniUI.toastExito("Calificación eliminada correctamente.");
+                    cargarTabla(); // refrescar tabla tras eliminar
+                } else {
+                    UniUI.toastError("No se pudo eliminar la calificación.");
+                }
+            }
+        });
+    }
 
     /* ── 5. Llenar select de estudiantes en el formulario ── */
     const selectEst = document.getElementById("estudiante_sel");

@@ -1,11 +1,266 @@
 [
-  { "id": "U001", "correo": "aitomalo@espe.edu.ec",  "password": "uninotas123", "rol": "estudiante", "refId": "E001", "nombreCompleto": "Anndy Ismael Tomalo" },
-  { "id": "U002", "correo": "eparedes@espe.edu.ec",  "password": "uninotas123", "rol": "estudiante", "refId": "E002", "nombreCompleto": "Estefanía Paredes" },
-  { "id": "U003", "correo": "lgarcia@espe.edu.ec",   "password": "uninotas123", "rol": "estudiante", "refId": "E003", "nombreCompleto": "Luis García" },
-  { "id": "U004", "correo": "vmora@espe.edu.ec",     "password": "uninotas123", "rol": "estudiante", "refId": "E004", "nombreCompleto": "Valeria Mora" },
-  { "id": "U005", "correo": "cvega@espe.edu.ec",     "password": "uninotas123", "rol": "estudiante", "refId": "E005", "nombreCompleto": "Carlos Vega" },
-  { "id": "U006", "correo": "lbeltran@espe.edu.ec",  "password": "docente123",  "rol": "docente",    "refId": "D001", "nombreCompleto": "Ing. Luis Beltran" },
-  { "id": "U007", "correo": "vsuarez@espe.edu.ec",   "password": "docente123",  "rol": "docente",    "refId": "D002", "nombreCompleto": "Ing. Valeria Suárez" },
-  { "id": "U008", "correo": "mandrade@espe.edu.ec",  "password": "docente123",  "rol": "docente",    "refId": "D003", "nombreCompleto": "Ing. Marco Andrade" },
-  { "id": "U009", "correo": "ggnarvaez@espe.edu.ec", "password": "docente123",  "rol": "docente",    "refId": "D004", "nombreCompleto": "Ing. Gabriel Gustavo Narváez" }
+  {
+    "id": "U001",
+    "correo": "aitomalo@espe.edu.ec",
+    "password": "uninotas123",
+    "rol": "estudiante",
+    "refId": "E001",
+    "nombreCompleto": "Anndy Ismael Tomalo"
+  },
+  {
+    "id": "U002",
+    "correo": "eparedes@espe.edu.ec",
+    "password": "uninotas123",
+    "rol": "estudiante",
+    "refId": "E002",
+    "nombreCompleto": "Estefanía Paredes"
+  },
+  {
+    "id": "U003",
+    "correo": "lgarcia@espe.edu.ec",
+    "password": "uninotas123",
+    "rol": "estudiante",
+    "refId": "E003",
+    "nombreCompleto": "Luis García"
+  },
+  {
+    "id": "U004",
+    "correo": "vmora@espe.edu.ec",
+    "password": "uninotas123",
+    "rol": "estudiante",
+    "refId": "E004",
+    "nombreCompleto": "Valeria Mora"
+  },
+  {
+    "id": "U005",
+    "correo": "cvega@espe.edu.ec",
+    "password": "uninotas123",
+    "rol": "estudiante",
+    "refId": "E005",
+    "nombreCompleto": "Carlos Vega"
+  },
+  {
+    "id": "U006",
+    "correo": "kcadena@espe.edu.ec",
+    "password": "uninotas123",
+    "rol": "estudiante",
+    "refId": "E006",
+    "nombreCompleto": "Kevin Cadena Ramírez"
+  },
+  {
+    "id": "U007",
+    "correo": "xmora@espe.edu.ec",
+    "password": "uninotas123",
+    "rol": "estudiante",
+    "refId": "E007",
+    "nombreCompleto": "Xavier Mora Villacís"
+  },
+  {
+    "id": "U008",
+    "correo": "mgarcía@espe.edu.ec",
+    "password": "uninotas123",
+    "rol": "estudiante",
+    "refId": "E008",
+    "nombreCompleto": "Miguel García Peñafiel"
+  },
+  {
+    "id": "U009",
+    "correo": "mtenesaca@espe.edu.ec",
+    "password": "uninotas123",
+    "rol": "estudiante",
+    "refId": "E009",
+    "nombreCompleto": "María José Tenesaca Herrera"
+  },
+  {
+    "id": "U010",
+    "correo": "lgarcía@espe.edu.ec",
+    "password": "uninotas123",
+    "rol": "estudiante",
+    "refId": "E010",
+    "nombreCompleto": "Lisbeth García Cevallos"
+  },
+  {
+    "id": "U011",
+    "correo": "cvega1@espe.edu.ec",
+    "password": "uninotas123",
+    "rol": "estudiante",
+    "refId": "E011",
+    "nombreCompleto": "Camila Vega Villacís"
+  },
+  {
+    "id": "U012",
+    "correo": "dzambrano@espe.edu.ec",
+    "password": "uninotas123",
+    "rol": "estudiante",
+    "refId": "E012",
+    "nombreCompleto": "Doménica Zambrano Guamán"
+  },
+  {
+    "id": "U013",
+    "correo": "fmora@espe.edu.ec",
+    "password": "uninotas123",
+    "rol": "estudiante",
+    "refId": "E013",
+    "nombreCompleto": "Fabricio Mora Quishpe"
+  },
+  {
+    "id": "U014",
+    "correo": "nmuñoz@espe.edu.ec",
+    "password": "uninotas123",
+    "rol": "estudiante",
+    "refId": "E014",
+    "nombreCompleto": "Nicole Muñoz Villacís"
+  },
+  {
+    "id": "U015",
+    "correo": "palmeida@espe.edu.ec",
+    "password": "uninotas123",
+    "rol": "estudiante",
+    "refId": "E015",
+    "nombreCompleto": "Paola Almeida García"
+  },
+  {
+    "id": "U016",
+    "correo": "cmora@espe.edu.ec",
+    "password": "uninotas123",
+    "rol": "estudiante",
+    "refId": "E016",
+    "nombreCompleto": "Cristian Mora Guamán"
+  },
+  {
+    "id": "U017",
+    "correo": "aortiz@espe.edu.ec",
+    "password": "uninotas123",
+    "rol": "estudiante",
+    "refId": "E017",
+    "nombreCompleto": "Alexander Ortiz Muñoz"
+  },
+  {
+    "id": "U018",
+    "correo": "jtenesaca@espe.edu.ec",
+    "password": "uninotas123",
+    "rol": "estudiante",
+    "refId": "E018",
+    "nombreCompleto": "Josué Tenesaca Ramírez"
+  },
+  {
+    "id": "U019",
+    "correo": "ktoapanta@espe.edu.ec",
+    "password": "uninotas123",
+    "rol": "estudiante",
+    "refId": "E019",
+    "nombreCompleto": "Karen Toapanta Chasi"
+  },
+  {
+    "id": "U020",
+    "correo": "bvega@espe.edu.ec",
+    "password": "uninotas123",
+    "rol": "estudiante",
+    "refId": "E020",
+    "nombreCompleto": "Bryan Vega Chasi"
+  },
+  {
+    "id": "U021",
+    "correo": "vmora1@espe.edu.ec",
+    "password": "uninotas123",
+    "rol": "estudiante",
+    "refId": "E021",
+    "nombreCompleto": "Valeria Mora Villacís"
+  },
+  {
+    "id": "U022",
+    "correo": "mparedes@espe.edu.ec",
+    "password": "uninotas123",
+    "rol": "estudiante",
+    "refId": "E022",
+    "nombreCompleto": "Melany Paredes Cevallos"
+  },
+  {
+    "id": "U023",
+    "correo": "sherrera@espe.edu.ec",
+    "password": "uninotas123",
+    "rol": "estudiante",
+    "refId": "E023",
+    "nombreCompleto": "Santiago Herrera Cando"
+  },
+  {
+    "id": "U024",
+    "correo": "apeñafiel@espe.edu.ec",
+    "password": "uninotas123",
+    "rol": "estudiante",
+    "refId": "E024",
+    "nombreCompleto": "Andrea Peñafiel Ramírez"
+  },
+  {
+    "id": "U025",
+    "correo": "cortiz@espe.edu.ec",
+    "password": "uninotas123",
+    "rol": "estudiante",
+    "refId": "E025",
+    "nombreCompleto": "Carlos Ortiz Herrera"
+  },
+  {
+    "id": "U026",
+    "correo": "lbeltran@espe.edu.ec",
+    "password": "docente123",
+    "rol": "docente",
+    "refId": "D001",
+    "nombreCompleto": "Ing. Luis Beltran"
+  },
+  {
+    "id": "U027",
+    "correo": "vsuarez@espe.edu.ec",
+    "password": "docente123",
+    "rol": "docente",
+    "refId": "D002",
+    "nombreCompleto": "Ing. Valeria Suárez"
+  },
+  {
+    "id": "U028",
+    "correo": "mandrade@espe.edu.ec",
+    "password": "docente123",
+    "rol": "docente",
+    "refId": "D003",
+    "nombreCompleto": "Ing. Marco Andrade"
+  },
+  {
+    "id": "U029",
+    "correo": "ggnarvaez@espe.edu.ec",
+    "password": "docente123",
+    "rol": "docente",
+    "refId": "D004",
+    "nombreCompleto": "Ing. Gabriel Gustavo Narváez"
+  },
+  {
+    "id": "U030",
+    "correo": "pvillacis@espe.edu.ec",
+    "password": "docente123",
+    "rol": "docente",
+    "refId": "D005",
+    "nombreCompleto": "Ing. Patricia Villacís"
+  },
+  {
+    "id": "U031",
+    "correo": "fchuquimarca@espe.edu.ec",
+    "password": "docente123",
+    "rol": "docente",
+    "refId": "D006",
+    "nombreCompleto": "Ing. Fernando Chuquimarca"
+  },
+  {
+    "id": "U032",
+    "correo": "dortiz@espe.edu.ec",
+    "password": "docente123",
+    "rol": "docente",
+    "refId": "D007",
+    "nombreCompleto": "Ing. Daniela Ortiz"
+  },
+  {
+    "id": "U033",
+    "correo": "rsalazar@espe.edu.ec",
+    "password": "docente123",
+    "rol": "docente",
+    "refId": "D008",
+    "nombreCompleto": "Ing. Ramiro Salazar"
+  }
 ]

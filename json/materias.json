@@ -1,6 +1,66 @@
 [
-  { "codigo": "23758", "nombre": "Estructura de Datos",    "creditos": 4, "semestre": 6, "docente_id": "D001", "periodo_id": "2026-1" },
-  { "codigo": "54125", "nombre": "Ingeniería de Software", "creditos": 3, "semestre": 6, "docente_id": "D002", "periodo_id": "2026-1" },
-  { "codigo": "26485", "nombre": "Cálculo Diferencial",    "creditos": 4, "semestre": 6, "docente_id": "D003", "periodo_id": "2026-1" },
-  { "codigo": "25485", "nombre": "Redes de Computadoras",  "creditos": 4, "semestre": 6, "docente_id": "D004", "periodo_id": "2026-1" }
+  {
+    "codigo": "23758",
+    "nombre": "Estructura de Datos",
+    "creditos": 4,
+    "semestre": 6,
+    "docente_id": "D001",
+    "periodo_id": "2026-1"
+  },
+  {
+    "codigo": "54125",
+    "nombre": "Ingeniería de Software",
+    "creditos": 3,
+    "semestre": 6,
+    "docente_id": "D002",
+    "periodo_id": "2026-1"
+  },
+  {
+    "codigo": "26485",
+    "nombre": "Cálculo Diferencial",
+    "creditos": 4,
+    "semestre": 6,
+    "docente_id": "D003",
+    "periodo_id": "2026-1"
+  },
+  {
+    "codigo": "25485",
+    "nombre": "Redes de Computadoras",
+    "creditos": 4,
+    "semestre": 6,
+    "docente_id": "D004",
+    "periodo_id": "2026-1"
+  },
+  {
+    "codigo": "31290",
+    "nombre": "Base de Datos",
+    "creditos": 4,
+    "semestre": 6,
+    "docente_id": "D005",
+    "periodo_id": "2026-1"
+  },
+  {
+    "codigo": "48213",
+    "nombre": "Sistemas Operativos",
+    "creditos": 3,
+    "semestre": 6,
+    "docente_id": "D006",
+    "periodo_id": "2026-1"
+  },
+  {
+    "codigo": "39027",
+    "nombre": "Programación Web",
+    "creditos": 4,
+    "semestre": 6,
+    "docente_id": "D007",
+    "periodo_id": "2026-1"
+  },
+  {
+    "codigo": "56710",
+    "nombre": "Seguridad Informática",
+    "creditos": 3,
+    "semestre": 6,
+    "docente_id": "D008",
+    "periodo_id": "2026-1"
+  }
 ]
