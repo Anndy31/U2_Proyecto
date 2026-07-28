@@ -365,7 +365,7 @@ function renderizarPanelIndicadoresGlobal(contenedorId) {
     cont.innerHTML = `
         <div class="panel-indicadores-global p-3 p-md-4 rounded shadow-sm">
             <h3 class="fw-bold mb-3 d-flex align-items-center gap-2" style="color:#1a3c6e;">
-                📊 Panel de Indicadores Global
+                 Panel de Indicadores Global
                 <small class="text-muted fw-normal fs-6">(todo el sistema)</small>
             </h3>
             <div class="row g-3 text-center">
