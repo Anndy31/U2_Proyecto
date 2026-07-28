@@ -296,6 +296,11 @@ document.addEventListener("DOMContentLoaded", async () => {
     /* Generar reporte automáticamente con los valores por defecto */
     generarReporte();
 
+    /* ── Botón "Restaurar datos" — accesible también desde Reportes ── */
+    UniUI.iniciarBotonRestaurar("btn-restaurar-datos", () => {
+        generarReporte();
+    });
+
     /* ── Cerrar sesión ── */
     const btnCerrar = document.getElementById("btn-cerrar-sesion");
     if (btnCerrar) {

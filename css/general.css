@@ -162,3 +162,30 @@ footer {
         font-size: 1.8rem;
     }
 }
+/* ============================================================
+   Componentes reutilizables — Eventos delegados + Panel global
+   Agregado: vista de detalle, mouseover, panel de indicadores
+   ============================================================ */
+
+/* Fila resaltada al pasar el mouse (evento delegado "mouseover")
+   Reutilizable en cualquier tabla del sitio (docente, principal,
+   servicios, búsqueda, reportes). */
+table tr.fila-resaltada {
+    background-color: #eaf1ff !important;
+    transition: background-color 0.15s ease-in-out;
+    cursor: pointer;
+}
+
+/* Panel de Indicadores Global — tarjetas compartidas entre páginas */
+.panel-indicadores-global {
+    background: #ffffff;
+    border: 1px solid #e3e8f0;
+}
+
+.panel-indicadores-global .ind-card {
+    transition: transform 0.15s ease-in-out;
+}
+
+.panel-indicadores-global .ind-card:hover {
+    transform: translateY(-3px);
+}

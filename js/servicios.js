@@ -36,6 +36,9 @@ function iniciarServicios() {
 
     /* Calendario académico */
     _renderizarCalendario();
+
+    /* Botón "Restaurar datos" — accesible también desde Servicios */
+    UniUI.iniciarBotonRestaurar("btn-restaurar-datos", () => iniciarServicios());
 }
 
 function _crearTarjetaServicio(srv) {
@@ -199,6 +202,7 @@ function iniciarBusqueda() {
                 : cal.estudiante_id;
 
             const tr = document.createElement("tr");
+            tr.dataset.calId = cal.id;
             tr.innerHTML = `
                 <td>${nombre}</td>
                 <td>${UniUtils.escaparHTML(materia?.nombre ?? cal.materia_codigo)}</td>
@@ -224,6 +228,37 @@ function iniciarBusqueda() {
 
     /* Cargar todos los resultados al iniciar */
     ejecutarBusqueda();
+
+    /* ── Eventos delegados sobre el <tbody> de resultados ──
+       (las filas se recrean en cada búsqueda, por eso se delega en el
+       contenedor fijo en lugar de enlazar cada <tr> individualmente) ── */
+
+    /* Click → vista de detalle completo del elemento */
+    tbody.addEventListener("click", (e) => {
+        const fila = e.target.closest("tr[data-cal-id]");
+        if (!fila) return;
+        const califs = UniStorage.leerColeccion(UniStorage.CLAVES.CALIFICACIONES);
+        const estudiantes = UniStorage.leerColeccion(UniStorage.CLAVES.ESTUDIANTES);
+        const materias = UniStorage.leerColeccion(UniStorage.CLAVES.MATERIAS);
+        const cal = califs.find((c) => c.id === fila.dataset.calId);
+        if (!cal) return;
+        const est = estudiantes.find((e2) => e2.id === cal.estudiante_id);
+        const mat = materias.find((m) => m.codigo === cal.materia_codigo);
+        UniUI.mostrarDetalleCalificacion(cal, est, mat);
+    });
+
+    /* Mouseover / mouseout → resaltar fila bajo el cursor */
+    tbody.addEventListener("mouseover", (e) => {
+        const fila = e.target.closest("tr[data-cal-id]");
+        if (fila) fila.classList.add("fila-resaltada");
+    });
+    tbody.addEventListener("mouseout", (e) => {
+        const fila = e.target.closest("tr[data-cal-id]");
+        if (fila) fila.classList.remove("fila-resaltada");
+    });
+
+    /* Botón "Restaurar datos" — accesible también desde Buscar */
+    UniUI.iniciarBotonRestaurar("btn-restaurar-datos", () => ejecutarBusqueda());
 }
 
 /* ── Exponer módulo ── */

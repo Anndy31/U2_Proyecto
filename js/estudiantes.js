@@ -53,7 +53,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         tbody.innerHTML = "";
 
         if (misCalif.length === 0) {
-            tbody.innerHTML = `<tr><td colspan="7" class="text-center text-muted py-3">
+            tbody.innerHTML = `<tr><td colspan="8" class="text-center text-muted py-3">
                 Sin calificaciones registradas para este período.</td></tr>`;
         } else {
             misCalif.forEach((cal) => {
@@ -64,6 +64,7 @@ document.addEventListener("DOMContentLoaded", async () => {
                 const clsProm  = estado === "Aprobado" ? "" : "text-danger";
 
                 const tr = document.createElement("tr");
+                tr.dataset.calId = cal.id;
                 tr.innerHTML = `
                     <td>${UniUtils.escaparHTML(cal.materia_codigo)}</td>
                     <td>${UniUtils.escaparHTML(nombre)}</td>
@@ -73,8 +74,37 @@ document.addEventListener("DOMContentLoaded", async () => {
                     <td class="text-center fw-bold ${clsProm}">${cal.promedio_final}</td>
                     <td class="text-center">
                         <span class="badge ${clsBadge} px-3 py-2">${estado}</span>
+                    </td>
+                    <td class="text-center">
+                        <button type="button" class="btn btn-sm btn-outline-secondary btn-detalle-cal"
+                                data-cal-id="${cal.id}" title="Ver detalle completo">
+                            👁️
+                        </button>
                     </td>`;
                 tbody.appendChild(tr);
+            });
+
+            /* ── Eventos delegados en el <tbody> ── */
+
+            /* Click → vista de detalle completo del elemento (modal) */
+            tbody.addEventListener("click", (e) => {
+                const btn = e.target.closest(".btn-detalle-cal");
+                if (!btn) return;
+                const califsActuales = UniStorage.leerColeccion(UniStorage.CLAVES.CALIFICACIONES);
+                const calSel = califsActuales.find((c) => c.id === btn.dataset.calId);
+                if (!calSel) return;
+                const materiaSel = materias.find((m) => m.codigo === calSel.materia_codigo);
+                UniUI.mostrarDetalleCalificacion(calSel, estudiante, materiaSel);
+            });
+
+            /* Mouseover / mouseout → resaltar fila al pasar el cursor */
+            tbody.addEventListener("mouseover", (e) => {
+                const fila = e.target.closest("tr[data-cal-id]");
+                if (fila) fila.classList.add("fila-resaltada");
+            });
+            tbody.addEventListener("mouseout", (e) => {
+                const fila = e.target.closest("tr[data-cal-id]");
+                if (fila) fila.classList.remove("fila-resaltada");
             });
         }
 
@@ -96,6 +126,12 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     /* ── 6. Frase motivacional ── */
     await UniUI.mostrarFraseMotivacional("frase-texto", "frase-autor");
+
+    /* ── 6.1 Panel de Indicadores Global — visible también para estudiantes ── */
+    UniUI.renderizarPanelIndicadoresGlobal("panel-indicadores-global");
+
+    /* ── 6.2 Botón "Restaurar datos" — accesible a todos los roles ── */
+    UniUI.iniciarBotonRestaurar("btn-restaurar-datos");
 
     /* ── 7. Cerrar sesión ── */
     const btnCerrar = document.getElementById("btn-cerrar-sesion");

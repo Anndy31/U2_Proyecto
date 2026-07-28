@@ -35,6 +35,12 @@
                     <li class="nav-item"><a class="nav-link text-white" href="acerca.html">Acerca de</a></li>
                     <li class="nav-item"><a class="nav-link text-white" href="contacto.html">Contacto</a></li>
                     <li class="nav-item"><a class="nav-link text-white" href="buscar.html">Buscar</a></li>
+                    <li class="nav-item mt-2 mt-lg-0">
+                        <button id="btn-restaurar-datos" type="button"
+                                class="btn btn-sm btn-outline-light rounded ms-lg-2">
+                            ↺ Restaurar datos
+                        </button>
+                    </li>
                     <!-- btn-cerrar-sesion interceptado por estudiantes.js -->
                     <li class="nav-item mt-2 mt-lg-0">
                         <a id="btn-cerrar-sesion" class="nav-link btn-cerrar px-3 rounded ms-lg-2 text-center"
@@ -68,6 +74,11 @@
                      style="background:#f0f4ff; border-left: 4px solid #1a3c6e;">
                 <p id="frase-texto" class="fst-italic mb-1 text-muted">Cargando frase...</p>
                 <small id="frase-autor" class="fw-bold" style="color:#1a3c6e;"></small>
+            </section>
+
+            <!-- ── Panel de Indicadores Global (todo el sistema) ── -->
+            <section id="panel-indicadores-global" class="mb-4">
+                <!-- Llenado dinámicamente por js/ui.js → renderizarPanelIndicadoresGlobal() -->
             </section>
 
             <!-- ── Resumen académico ── -->
@@ -119,12 +130,13 @@
                                 <th scope="col">Examen Final</th>
                                 <th scope="col">Promedio</th>
                                 <th scope="col">Estado</th>
+                                <th scope="col">Detalle</th>
                             </tr>
                         </thead>
                         <!-- tbody llenado dinámicamente por estudiantes.js -->
                         <tbody id="tbody-calificaciones">
                             <tr>
-                                <td colspan="7" class="text-center text-muted py-3">
+                                <td colspan="8" class="text-center text-muted py-3">
                                     Cargando calificaciones...
                                 </td>
                             </tr>

@@ -62,6 +62,53 @@ document.addEventListener("DOMContentLoaded", async () => {
         : "Sin materia asignada";
     if (elPeriodo) elPeriodo.textContent = periodoActivo.id;
 
+    /* ── Chart.js — gráfico reactivo Aprobados/Reprobados de la materia ── */
+    let chartMateria = null;
+    function _actualizarGraficoMateria(califMateria) {
+        const canvas = document.getElementById("chart-docente-materia");
+        if (!canvas || typeof Chart === "undefined") return;
+
+        const aprobados = califMateria.filter(
+            (c) => UniUtils.calcularEstado(
+                UniUtils.calcularPromedio(c.parcial1, c.parcial2, c.parcial3)
+            ) === "Aprobado"
+        ).length;
+        const reprobados = califMateria.length - aprobados;
+
+        if (chartMateria) {
+            /* Actualiza los datos existentes en lugar de recrear el gráfico
+               → animación suave cada vez que se crea/edita/elimina una nota */
+            chartMateria.data.datasets[0].data = [aprobados, reprobados];
+            chartMateria.update();
+            return;
+        }
+
+        chartMateria = new Chart(canvas, {
+            type: "doughnut",
+            data: {
+                labels: ["Aprobados", "Reprobados"],
+                datasets: [{
+                    data: [aprobados, reprobados],
+                    backgroundColor: ["#1e7e34", "#c0392b"],
+                    borderWidth: 2,
+                    borderColor: "#fff"
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: { position: "bottom" },
+                    title: {
+                        display: true,
+                        text: materia ? materia.nombre : "Materia",
+                        color: "#1a3c6e",
+                        font: { size: 13, weight: "bold" }
+                    }
+                }
+            }
+        });
+    }
+
     /* ── 4. Cargar calificaciones y renderizar tabla ── */
     function cargarTabla() {
         const califs = UniStorage.leerColeccion(UniStorage.CLAVES.CALIFICACIONES);
@@ -78,6 +125,8 @@ document.addEventListener("DOMContentLoaded", async () => {
         if (califMateria.length === 0) {
             tbody.innerHTML = `<tr><td colspan="8" class="text-center text-muted py-3">
                 Sin estudiantes registrados para esta materia.</td></tr>`;
+            _actualizarGraficoMateria([]);
+            UniUI.renderizarPanelIndicadoresGlobal("panel-indicadores-global");
             return;
         }
 
@@ -106,6 +155,10 @@ document.addEventListener("DOMContentLoaded", async () => {
                     <span class="badge ${clsBadge} px-3 py-2">${estado}</span>
                 </td>
                 <td class="text-center text-nowrap">
+                    <button type="button" class="btn btn-sm btn-outline-secondary btn-detalle-cal"
+                            data-cal-id="${cal.id}" title="Ver detalle completo">
+                        👁️ Detalle
+                    </button>
                     <button type="button" class="btn btn-sm btn-outline-primary btn-editar-cal"
                             data-cal-id="${cal.id}" title="Editar calificación">
                         ✏️ Editar
@@ -117,6 +170,10 @@ document.addEventListener("DOMContentLoaded", async () => {
                 </td>`;
             tbody.appendChild(tr);
         });
+
+        /* Gráfico y panel de indicadores globales siempre en sincronía con el CRUD */
+        _actualizarGraficoMateria(califMateria);
+        UniUI.renderizarPanelIndicadoresGlobal("panel-indicadores-global");
     }
 
     cargarTabla();
@@ -127,8 +184,20 @@ document.addEventListener("DOMContentLoaded", async () => {
     const tbodyDocente = document.getElementById("tbody-docente");
     if (tbodyDocente) {
         tbodyDocente.addEventListener("click", async (e) => {
+            const btnDetalle  = e.target.closest(".btn-detalle-cal");
             const btnEditar   = e.target.closest(".btn-editar-cal");
             const btnEliminar = e.target.closest(".btn-eliminar-cal");
+
+            /* ---- Ver detalle: modal con el desglose completo del estudiante ---- */
+            if (btnDetalle) {
+                const calId = btnDetalle.dataset.calId;
+                const califs = UniStorage.leerColeccion(UniStorage.CLAVES.CALIFICACIONES);
+                const cal = califs.find((c) => c.id === calId);
+                if (!cal) return;
+                const est = estudiantesDB.find((e2) => e2.id === cal.estudiante_id);
+                UniUI.mostrarDetalleCalificacion(cal, est, materia);
+                return;
+            }
 
             /* ---- Editar: precarga el formulario con los datos actuales ---- */
             if (btnEditar) {
@@ -176,6 +245,48 @@ document.addEventListener("DOMContentLoaded", async () => {
                 } else {
                     UniUI.toastError("No se pudo eliminar la calificación.");
                 }
+            }
+        });
+    }
+
+    /* ── 4.2 Delegación de eventos — mouseover / mouseout ──
+       Al pasar el cursor sobre una fila se resalta y se muestra una
+       "vista rápida" del estudiante en el panel superior, sin necesidad
+       de abrir el modal completo de detalle. ── */
+    const vistaRapida = document.getElementById("vista-rapida-docente");
+    if (tbodyDocente && vistaRapida) {
+        tbodyDocente.addEventListener("mouseover", (e) => {
+            const fila = e.target.closest("tr[data-cal-id]");
+            if (!fila) return;
+
+            fila.classList.add("fila-resaltada");
+
+            const calId = fila.dataset.calId;
+            const califs = UniStorage.leerColeccion(UniStorage.CLAVES.CALIFICACIONES);
+            const cal = califs.find((c) => c.id === calId);
+            if (!cal) return;
+
+            const est = estudiantesDB.find((e2) => e2.id === cal.estudiante_id);
+            const nombre = est ? `${est.nombres} ${est.apellidos}` : cal.estudiante_id;
+            const promedio = UniUtils.calcularPromedio(cal.parcial1, cal.parcial2, cal.parcial3);
+            const estado = UniUtils.calcularEstado(promedio);
+            const color = estado === "Aprobado" ? "#1e7e34" : "#c0392b";
+
+            vistaRapida.innerHTML = `
+                👀 <strong>${UniUtils.escaparHTML(nombre)}</strong>
+                &nbsp;|&nbsp; Promedio: <strong style="color:${color};">${promedio}</strong>
+                &nbsp;|&nbsp; Estado: <strong style="color:${color};">${estado}</strong>`;
+        });
+
+        tbodyDocente.addEventListener("mouseout", (e) => {
+            const fila = e.target.closest("tr[data-cal-id]");
+            if (!fila) return;
+            fila.classList.remove("fila-resaltada");
+
+            /* Si el mouse no se movió hacia otra fila, limpiar la vista rápida */
+            const relacionado = e.relatedTarget ? e.relatedTarget.closest("tr[data-cal-id]") : null;
+            if (!relacionado) {
+                vistaRapida.innerHTML = `<em class="text-muted">Vista rápida: pasa el mouse sobre una fila de la tabla…</em>`;
             }
         });
     }
@@ -279,6 +390,14 @@ document.addEventListener("DOMContentLoaded", async () => {
             cargarTabla(); // refrescar tabla
         });
     }
+
+    /* ── 6.1 Botón "Restaurar datos" — accesible también desde este panel ──
+       (antes no estaba conectado en esta página; ahora usa el helper
+       compartido de ui.js y refresca tabla + gráfico + indicadores sin
+       tener que recargar toda la página). ── */
+    UniUI.iniciarBotonRestaurar("btn-restaurar-datos", () => {
+        cargarTabla();
+    });
 
     /* ── 7. Cerrar sesión con confirmación ── */
     const btnCerrar = document.getElementById("btn-cerrar-sesion");

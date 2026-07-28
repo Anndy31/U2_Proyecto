@@ -1,161 +1,139 @@
 # UniNotas — Sistema de Gestión de Notas Universitarias
 
+## Nombre del estudiante
+
+Anndy Ismael Tomalo
+
 ## Descripción
 
-UniNotas es una aplicación web estática desarrollada como proyecto académico para la asignatura **Fundamentos Web** de la Universidad de las Fuerzas Armadas ESPE, Sede Santo Domingo. Simula un sistema de gestión de notas universitarias, permitiendo a estudiantes y docentes consultar calificaciones, reportes académicos, servicios institucionales y más, todo desde una interfaz web moderna y responsiva.
+UniNotas es una aplicación web dinámica e interactiva desarrollada como proyecto integrador para la asignatura **Fundamentos Web**, Universidad de las Fuerzas Armadas ESPE, Sede Santo Domingo. Simula un sistema de gestión de notas universitarias que permite a estudiantes y docentes consultar y administrar calificaciones, ver reportes académicos con gráficos estadísticos, explorar servicios institucionales y registrarse en la plataforma indicando su nacionalidad.
 
----
+El proyecto evolucionó durante los tres parciales: partió de una estructura HTML semántica y estática (parcial 1), se convirtió en un sitio completamente responsivo (parcial 2) y finalmente se transformó en una aplicación dinámica con JavaScript, datos en JSON, `localStorage`, librerías externas y consumo de APIs (parcial 3).
 
 ## Objetivo
 
-Desarrollar un sitio web multi-página aplicando los fundamentos del desarrollo frontend: HTML5 semántico, CSS3 modular y Bootstrap 5, con integración de datos estructurados en formatos JSON y XML que representen la información académica del sistema.
+Integrar HTML semántico, diseño web responsivo, JavaScript, archivos JSON, almacenamiento local, librerías externas y APIs en un proyecto de aula coherente y funcional, demostrando su evolución técnica a lo largo del curso.
 
----
+## Funcionalidades
 
-## Tecnologías Utilizadas
+- **Autenticación simulada** (`index.html` / `login.js`) con validación de formulario.
+- **Dashboard del estudiante** (`principal.html`) con navegación general del sistema.
+- **Panel docente** (`docente.html` / `docentes.js`):
+  - Carga dinámica de calificaciones por materia desde JSON/`localStorage`.
+  - Registro, edición y eliminación de calificaciones mediante delegación de eventos.
+  - Confirmación de eliminación con **SweetAlert2** y notificaciones con **Toastify**.
+  - Actualización inmediata de la tabla e indicadores tras cada operación.
+- **Reportes académicos** (`reportes.html` / `reportes.js`):
+  - Gráficos de tipo doughnut y de barras con **Chart.js**, generados a partir de los datos reales de calificaciones.
+  - Indicadores calculados con `reduce`, `filter`, `map`, `some` y `every` (total, promedio general, % aprobados/reprobados).
+- **Servicios académicos** (`servicios.html` / `servicios.js`):
+  - Búsqueda en tiempo real (evento `input` con *debounce*) y filtros combinados.
+  - Tarjetas generadas dinámicamente desde `json/servicios.json`.
+- **Registro de usuario** (`registro.html` / `registro.js`):
+  - Formulario validado (correo, contraseña, confirmación, fecha de nacimiento).
+  - Selector de nacionalidad conectado a la API de países, con buscador en vivo y bandera.
+  - Persistencia del usuario registrado en `localStorage`.
+- **Galería institucional**, **Acerca de**, **Contacto** y **Buscador** de contenido.
+- **Carga inicial vía `fetch`** de todos los archivos JSON, con siembra automática en `localStorage` en el primer arranque y opción de restablecer los datos originales.
+- **Manejo de errores**: validación de `response.ok`, bloques `try/catch` y valores de respaldo (*fallback*) cuando una API externa no responde.
 
-| Tecnología | Versión | Uso |
-|---|---|---|
-| HTML5 | — | Estructura semántica de todas las páginas |
-| CSS3 | — | Estilos personalizados (arquitectura modular) |
-| Bootstrap | 5.3.3 | Framework CSS responsivo y componentes UI |
-| Font Awesome | 6.5.0 | Íconos vectoriales |
-| JSON | — | Almacenamiento de datos académicos |
-| XML | 1.0 | Representación alternativa de datos estructurados |
-| Git / GitHub | — | Control de versiones y repositorio remoto |
+## Tecnologías utilizadas
 
----
+| Tecnología | Uso |
+|---|---|
+| HTML5 | Estructura semántica de todas las páginas |
+| CSS3 | Estilos personalizados (arquitectura modular por página) |
+| Bootstrap 5.3.3 | Grid responsivo y componentes UI (navbar, cards, forms, tablas) |
+| JavaScript (ES6+) | Lógica dinámica, DOM, eventos, `fetch`, `localStorage` |
+| JSON | Fuente de datos del sistema (académicos, usuarios, servicios) |
+| Font Awesome 6.5.0 | Íconos vectoriales |
+| Git / GitHub | Control de versiones y repositorio remoto |
 
-## Estructura de Carpetas
+## Librerías incorporadas
+
+| Librería | Uso en el proyecto |
+|---|---|
+| **SweetAlert2** (v11) | Confirmación de eliminación de calificaciones, restablecimiento de datos y mensajes de resultado |
+| **Toastify JS** | Notificaciones breves (registro guardado, error, elemento actualizado, etc.) |
+| **Chart.js** (v4.4.3) | Gráfico doughnut y de barras en el módulo de Reportes, actualizado con datos reales |
+
+## APIs consumidas
+
+| API | Uso |
+|---|---|
+| [countries.dev](https://countries.dev/countries) | Selector de nacionalidad en el formulario de registro: nombre y bandera de cada país, con búsqueda en vivo |
+| [Quotable API](https://api.quotable.io) | Frase motivacional mostrada en el dashboard del estudiante |
+
+Ambas integraciones incluyen manejo de estado de carga, verificación de `response.ok` y datos de respaldo en caso de error o falta de conexión.
+
+## Estructura de carpetas
 
 ```
 U2_Proyecto_TomaloAnndy/
 │
-├── index.html            # Página de inicio de sesión
-├── principal.html        # Dashboard principal (panel del estudiante)
-├── docente.html          # Panel del docente
-├── reportes.html         # Reportes de calificaciones
-├── servicios.html        # Servicios académicos disponibles
+├── index.html            # Inicio de sesión
+├── principal.html        # Dashboard del estudiante
+├── docente.html          # Panel del docente (CRUD de calificaciones)
+├── reportes.html         # Reportes y gráficos (Chart.js)
+├── servicios.html        # Servicios académicos (búsqueda y filtros)
 ├── galeria.html          # Galería institucional
 ├── acerca.html           # Información sobre el sistema
 ├── contacto.html         # Formulario y datos de contacto
 ├── buscar.html           # Buscador de contenido
-├── registro.html         # Registro de nuevo usuario
+├── registro.html         # Registro de usuario (con API de países)
+├── README.md
 │
-├── css/
-│   ├── general.css       # Estilos globales y overrides de Bootstrap
-│   ├── index.css         # Estilos de la página de login
-│   ├── principal.css     # Estilos del dashboard
-│   ├── docente.css       # Estilos del panel docente
-│   ├── reportes.css      # Estilos de reportes
-│   ├── servicios.css     # Estilos de servicios
-│   ├── galeria.css       # Estilos de la galería
-│   ├── acerca.css        # Estilos de la página Acerca de
-│   ├── contacto.css      # Estilos de contacto
-│   ├── buscar.css        # Estilos del buscador
-│   └── registro.css      # Estilos del formulario de registro
+├── css/                  # Estilos por página + estilos generales
+├── js/
+│   ├── main.js
+│   ├── api.js            # fetch de JSON y APIs externas
+│   ├── storage.js        # persistencia en localStorage
+│   ├── validaciones.js
+│   ├── ui.js              # SweetAlert2 / Toastify
+│   ├── utils.js
+│   ├── login.js
+│   ├── registro.js
+│   ├── docentes.js
+│   ├── estudiantes.js
+│   ├── servicios.js
+│   └── reportes.js
 │
-├── datos/
-│   ├── datos.json        # Datos académicos en formato JSON
-│   └── datos.xml         # Datos académicos en formato XML
+├── json/
+│   ├── estudiantes.json
+│   ├── docentes.json
+│   ├── materias.json
+│   ├── periodos.json
+│   ├── calificaciones.json
+│   ├── servicios.json
+│   └── usuarios.json
 │
-├── img/
-│   ├── logo.png
-│   ├── logo1.png
-│   ├── que es.jpg
-│   └── telf.png
-│
-└── Barra/
-    └── *.ico             # Íconos de la barra de navegación
+├── img/                  # Recursos gráficos
+└── Barra/                # Íconos de la barra de navegación
 ```
 
----
+## Instrucciones para ejecutar el proyecto
 
-## Páginas Disponibles
+El proyecto consume archivos JSON mediante `fetch`, por lo que **requiere un servidor local** (no funciona abriendo el `index.html` directamente con `file://`).
 
-| Archivo | Título | Descripción |
-|---|---|---|
-| `index.html` | Inicio de Sesión | Formulario de autenticación con credenciales universitarias |
-| `principal.html` | Dashboard | Panel de bienvenida con navegación general del sistema |
-| `docente.html` | Panel Docente | Vista para gestión de calificaciones por parte del docente |
-| `reportes.html` | Reportes | Visualización de calificaciones parciales y finales |
-| `servicios.html` | Servicios | Servicios académicos ofrecidos por la institución |
-| `galeria.html` | Galería | Galería de imágenes institucionales |
-| `acerca.html` | Acerca de | Información general sobre el sistema UniNotas |
-| `contacto.html` | Contacto | Formulario de contacto y datos institucionales |
-| `buscar.html` | Buscar | Módulo de búsqueda de contenido |
-| `registro.html` | Registro | Formulario de creación de cuenta para nuevos usuarios |
+1. Clona el repositorio:
+   ```bash
+   git clone https://github.com/Anndy31/U2_Proyecto.git
+   cd U2_Proyecto
+   ```
+2. Abre la carpeta en Visual Studio Code e instala la extensión **Live Server**.
+3. Clic derecho sobre `index.html` → **Open with Live Server**.
+4. Ingresa cualquier correo y contraseña en la pantalla de inicio de sesión para acceder al sistema.
+5. En el primer arranque la aplicación descargará los archivos JSON y los guardará en `localStorage`; las siguientes ejecuciones usarán esos datos hasta que se elija "Restablecer datos".
 
----
+> Se requiere conexión a internet para cargar Bootstrap, Font Awesome, SweetAlert2, Toastify, Chart.js y las APIs externas desde CDN.
 
-## Componentes Bootstrap Utilizados
+## Capturas principales
 
-- **Navbar** (`navbar`, `navbar-expand-lg`, `navbar-toggler`, `collapse`) — Barra de navegación responsiva con menú colapsable
-- **Cards** (`card`, `.card-uninotas`) — Contenedores de información y formularios
-- **Forms** (`form-control`, `form-label`, `mb-3`) — Formularios de login, registro y contacto
-- **Buttons** (`btn`, `btn-primary`, `btn-lg`, `d-grid`) — Botones de acción
-- **Grid System** (`container`, `container-fluid`, `row`, `col-*`) — Sistema de columnas responsivo
-- **Utilities** (`text-center`, `fw-bold`, `text-muted`, `mt-*`, `mx-auto`, `gap-*`) — Clases de utilidad para espaciado, alineación y tipografía
-- **Tables** (`table`, `table-striped`, `table-hover`) — Tablas de calificaciones y reportes
+_(Insertar aquí las capturas de: página principal, panel docente, reportes con gráficos, buscador de servicios, formulario de registro con selector de país, vista móvil/tableta/escritorio, SweetAlert2, Toastify y datos en localStorage)._
 
----
+## Enlace de GitHub Pages
 
-## Archivos de Datos
-
-### `datos/datos.json`
-
-Archivo en formato **JSON (JavaScript Object Notation)** que actúa como base de datos estática del sistema. Contiene información organizada en los siguientes objetos:
-
-- **`sistema`** — Metadatos del proyecto: nombre, versión, institución, autor y enlace a GitHub.
-- **`periodos`** — Semestres académicos disponibles con fechas de inicio y fin (2025-1, 2025-2, 2026-1).
-- **`materias`** — Asignaturas del período activo: Estructura de Datos, Ingeniería de Software, Cálculo Diferencial y Redes de Computadoras.
-- **`docentes`** — Información de los cuatro docentes asignados a cada materia, incluyendo correo institucional.
-- **`estudiantes`** — Registro de cinco estudiantes con sus datos académicos y estado activo.
-- **`calificaciones`** — Notas de los tres parciales y promedio final por estudiante y materia, con estado Aprobado/Reprobado.
-- **`calendario_academico`** — Fechas de parciales, exámenes finales y período de recalificaciones.
-- **`servicios`** — Listado de los seis servicios disponibles en el sistema.
-- **`contacto`** — Información institucional de soporte: correo, teléfono, dirección y redes sociales.
-
-### `datos/datos.xml`
-
-Archivo en formato **XML (eXtensible Markup Language)** que representa un subconjunto de los datos académicos del sistema con estructura jerárquica de etiquetas. Contiene:
-
-- **`<sistema>`** — Información general del sistema (nombre, versión, institución, sede, autor).
-- **`<estudiantes>`** — Datos del estudiante principal (E001: Anndy Ismael Tomalo), con cédula, correo y semestre.
-- **`<materias>`** — Las cuatro materias del período activo con sus códigos y créditos.
-- **`<calificaciones>`** — Registros de notas del estudiante E001 en dos materias, con parciales, promedio final y estado.
-
-> El archivo XML utiliza atributos (`id`, `codigo`, `estudiante_id`, `materia_codigo`) para establecer relaciones entre entidades, mientras que el JSON usa propiedades anidadas para una representación más completa del mismo modelo de datos.
-
----
-
-## Instrucciones para Ejecutar el Proyecto
-
-El proyecto es completamente estático (HTML + CSS + JS). No requiere instalación de dependencias ni servidor backend.
-
-**Opción 1 — Abrir directamente en el navegador:**
-
-1. Descarga o clona el repositorio.
-2. Abre el archivo `index.html` con cualquier navegador moderno (Chrome, Firefox, Edge).
-3. Ingresa cualquier correo y contraseña para acceder al sistema.
-
-**Opción 2 — Clonar desde GitHub:**
-
-```bash
-git clone https://github.com/Anndy31/U2_Proyecto.git
-cd U2_Proyecto
-# Abre index.html en tu navegador
-```
-
-**Opción 3 — Con extensión Live Server (VS Code):**
-
-1. Instala la extensión **Live Server** en Visual Studio Code.
-2. Abre la carpeta del proyecto.
-3. Haz clic derecho sobre `index.html` → **Open with Live Server**.
-
-> **Nota:** Para que los íconos de Font Awesome carguen correctamente se requiere conexión a internet, ya que se cargan desde CDN.
-
----
+`https://anndy31.github.io/U2_Proyecto/`
 
 ## Autor
 
@@ -167,4 +145,4 @@ cd U2_Proyecto
 | **Carrera** | Tecnologías de la Información |
 | **Asignatura** | Fundamentos Web |
 | **Período** | 2026-1 |
-| **GitHub** | [https://github.com/Anndy31/U2_Proyecto](https://github.com/Anndy31/U2_Proyecto) |
+| **GitHub** | https://github.com/Anndy31/U2_Proyecto |

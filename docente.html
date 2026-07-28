@@ -63,34 +63,63 @@
                 </p>
             </section>
 
-            <!-- ── Tabla de estudiantes matriculados ── -->
-            <section class="mb-5">
-                <h3 class="fw-bold mb-3" style="color: #1a3c6e;">Lista de Estudiantes Matriculados</h3>
-                <div class="table-responsive tabla-docente">
-                    <table class="table table-striped table-hover table-bordered align-middle mb-0">
-                        <thead class="text-center">
-                            <tr>
-                                <th scope="col">N°</th>
-                                <th scope="col">Estudiante</th>
-                                <th scope="col">Parcial 1</th>
-                                <th scope="col">Parcial 2</th>
-                                <th scope="col">Parcial 3</th>
-                                <th scope="col">Promedio</th>
-                                <th scope="col">Estado</th>
-                                <th scope="col">Acciones</th>
-                            </tr>
-                        </thead>
-                        <!-- tbody llenado dinámicamente por docentes.js -->
-                        <tbody id="tbody-docente">
-                            <tr>
-                                <td colspan="8" class="text-center text-muted py-3">
-                                    Cargando estudiantes...
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
+            <!-- ── Panel de Indicadores Global (todo el sistema) ── -->
+            <section id="panel-indicadores-global" class="mb-4">
+                <!-- Llenado dinámicamente por js/ui.js → renderizarPanelIndicadoresGlobal() -->
             </section>
+
+            <!-- ── Tabla de estudiantes matriculados + Vista rápida / Gráfico ── -->
+            <div class="row g-4 mb-2">
+                <div class="col-lg-8">
+                    <section class="mb-5">
+                        <h3 class="fw-bold mb-3" style="color: #1a3c6e;">Lista de Estudiantes Matriculados</h3>
+                        <p class="text-muted small mb-2">
+                            Pasa el mouse sobre una fila para ver una vista rápida, o usa
+                            <strong>👁️ Detalle</strong> para el desglose completo.
+                        </p>
+                        <div id="vista-rapida-docente" class="alert alert-light border small mb-3" style="min-height:42px;">
+                            <em class="text-muted">Vista rápida: pasa el mouse sobre una fila de la tabla…</em>
+                        </div>
+                        <div class="table-responsive tabla-docente">
+                            <table class="table table-striped table-hover table-bordered align-middle mb-0">
+                                <thead class="text-center">
+                                    <tr>
+                                        <th scope="col">N°</th>
+                                        <th scope="col">Estudiante</th>
+                                        <th scope="col">Parcial 1</th>
+                                        <th scope="col">Parcial 2</th>
+                                        <th scope="col">Parcial 3</th>
+                                        <th scope="col">Promedio</th>
+                                        <th scope="col">Estado</th>
+                                        <th scope="col">Acciones</th>
+                                    </tr>
+                                </thead>
+                                <!-- tbody llenado dinámicamente por docentes.js -->
+                                <tbody id="tbody-docente">
+                                    <tr>
+                                        <td colspan="8" class="text-center text-muted py-3">
+                                            Cargando estudiantes...
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </section>
+                </div>
+
+                <!-- ── Gráfico actualizable en vivo con el CRUD de calificaciones ── -->
+                <div class="col-lg-4">
+                    <section class="p-3 rounded shadow-sm h-100">
+                        <h3 class="fw-bold mb-3 text-center" style="color: #1a3c6e;">
+                            Aprobados / Reprobados
+                        </h3>
+                        <canvas id="chart-docente-materia" style="max-height:280px;"></canvas>
+                        <p class="text-center text-muted small mt-2 mb-0">
+                            Se actualiza automáticamente al crear, editar o eliminar calificaciones.
+                        </p>
+                    </section>
+                </div>
+            </div>
 
             <!-- ── Formulario de registro de calificaciones ── -->
             <section class="form-notas-wrapper p-4 rounded">
@@ -140,6 +169,8 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <!-- Toastify -->
     <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    <!-- Chart.js — gráfico actualizable al CRUD -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js"></script>
     <!-- UniNotas JS — orden obligatorio -->
     <script src="js/storage.js"></script>
     <script src="js/utils.js"></script>
