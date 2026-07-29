@@ -28,17 +28,20 @@ document.addEventListener("DOMContentLoaded", async () => {
     UniUI.mostrarSpinner(false);
 
     /* Referencias al formulario */
-    const form = document.getElementById("form-login");
-    const campoCorreo = document.getElementById("correo");
-    const campoPwd = document.getElementById("contrasena");
+    const form         = document.getElementById("form-login");
+    const campoCorreo  = document.getElementById("correo");
+    const campoPwd     = document.getElementById("contrasena");
 
-    if (!form) return; // protección si el ID cambia
+    if (!form) return;
+
+    /* Limpiar cualquier estado de validación residual al cargar */
+    UniValidaciones.limpiarValidaciones(form);
 
     form.addEventListener("submit", (e) => {
         e.preventDefault();
         UniValidaciones.limpiarValidaciones(form);
 
-        const correo = campoCorreo.value.trim();
+        const correo   = campoCorreo.value.trim();
         const password = campoPwd.value;
 
         const { valido, usuario } = UniValidaciones.validarLogin(
