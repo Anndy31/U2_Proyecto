@@ -53,15 +53,17 @@
 
             <div class="row g-4">
                 <div class="col-lg-7">
-                    <form action="#" method="get" class="form-contacto bg-light p-4 rounded border h-100">
+                    <form action="#" method="post" class="form-contacto bg-light p-4 rounded border h-100" novalidate>
                         <div class="mb-3">
                             <label for="nombre" class="form-label fw-bold">Nombre Completo</label>
                             <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Ingrese su nombre completo" required />
                             <div class="form-text">Ingrese su nombre tal como aparece en su cédula.</div>
+                            <div class="invalid-feedback">El nombre debe tener al menos 3 caracteres.</div>
                         </div>
                         <div class="mb-3">
                             <label for="correo" class="form-label fw-bold">Correo Electrónico</label>
                             <input type="email" class="form-control" id="correo" name="correo" placeholder="correo@ejemplo.com" required />
+                            <div class="invalid-feedback">Ingresa un correo electrónico válido.</div>
                         </div>
                         <div class="mb-3">
                             <label for="asunto" class="form-label fw-bold">Asunto</label>
@@ -72,10 +74,12 @@
                                 <option value="reporte">Solicitud de boletín de notas</option>
                                 <option value="otro">Otro</option>
                             </select>
+                            <div class="invalid-feedback">Selecciona el motivo del mensaje.</div>
                         </div>
                         <div class="mb-4">
                             <label for="mensaje" class="form-label fw-bold">Mensaje</label>
                             <textarea class="form-control" id="mensaje" name="mensaje" rows="4" placeholder="Escriba su mensaje aquí..." required></textarea>
+                            <div class="invalid-feedback">El mensaje debe tener al menos 10 caracteres.</div>
                         </div>
                         <div class="d-grid">
                             <button type="submit" class="btn btn-success fw-bold py-2">Enviar Mensaje</button>
@@ -114,5 +118,6 @@
     <script src="js/ui.js"></script>
     <script src="js/validaciones.js"></script>
     <script src="js/main.js"></script>
+    <script src="js/contacto.js"></script>
 </body>
 </html>
