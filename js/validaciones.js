@@ -79,7 +79,7 @@ function limpiarValidaciones(formulario) {
 function validarLogin(correo, password, campoCorreo, campoPassword) {
     let valido = true;
 
-    /* Validar correo */
+     /* Validar correo */
     if (!correo.trim()) {
         _marcarInvalido(campoCorreo, "El correo es obligatorio.");
         valido = false;
