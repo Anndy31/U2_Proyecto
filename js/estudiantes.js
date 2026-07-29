@@ -14,8 +14,17 @@
 document.addEventListener("DOMContentLoaded", async () => {
 
     /* ── 1. Protección de ruta ── */
-    const sesion = UniUtils.requiereAutenticacion();
-    if (!sesion) return; // requiereAutenticacion() ya redirige
+  /* ── 1. Protección de ruta ── */
+const sesion = UniUtils.requiereAutenticacion();
+if (!sesion) return; // requiereAutenticacion() ya redirige
+
+/* Ocultar opciones del menú según el rol */
+if (sesion.rol === "estudiante") {
+    const navBuscar = document.getElementById("nav-buscar");
+    if (navBuscar) {
+        navBuscar.style.display = "none";
+    }
+}
 
     /* ── 2. Obtener datos del estudiante logueado ── */
     const estudiantes = UniStorage.leerColeccion(UniStorage.CLAVES.ESTUDIANTES);
