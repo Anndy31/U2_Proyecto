@@ -15,7 +15,16 @@ body {
     color: #222222;
     line-height: 1.6;
 }
-
+/* ── Fondo con imagen para todas las páginas protegidas ── */
+body.con-fondo {
+    background-image:
+        linear-gradient(rgba(240, 244, 248, 0.82), rgba(240, 244, 248, 0.82)),
+        url("../img/a.png");
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+}
 /* ============================================================
    SOBREESCRITURA BOOTSTRAP 5 - PALETA INSTITUCIONAL
    ============================================================ */

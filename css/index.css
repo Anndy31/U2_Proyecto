@@ -8,6 +8,16 @@
     min-height: 100vh;
 }
 
+#pagina-login {
+    background-image:
+        linear-gradient(rgba(13, 31, 60, 0.65), rgba(13, 31, 60, 0.65)),
+        url("../img/u.png");
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+}
 #pagina-login main {
     display: flex;
     align-items: center;

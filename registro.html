@@ -15,7 +15,7 @@
 
 <!-- AQUÍ: Faltaba el id "pagina-registro" para que el CSS funcione -->
 
-<body id="pagina-registro">
+<body id="pagina-registro" class="con-fondo">
     <header>
         <div class="header-logo">
             <span>UN</span>
@@ -50,8 +50,8 @@
                 <div class="row mb-3">
                     <div class="col-md-6">
                         <label for="fecha_nacimiento" class="form-label fw-bold">Fecha de Nacimiento</label>
-                        <input type="date" class="form-control bg-light" id="fecha_nacimiento" name="fecha_nacimiento"
-                            required />
+                        <input type="date" class="form-control bg-light" id="fecha_nacimiento"
+                            name="fecha_nacimiento" required />
                     </div>
                     <div class="col-md-6 mt-3 mt-md-0">
                         <label for="genero" class="form-label fw-bold">Género</label>
@@ -62,52 +62,65 @@
                             <option value="otro">Prefiero no decir</option>
                         </select>
                     </div>
-                    <!-- Campo Nacionalidad — selector personalizado con búsqueda y bandera,
-                         llenado dinámicamente por registro.js vía countries.dev -->
-                    <div class="mb-3">
-                        <label for="nacionalidad_buscar" class="form-label fw-bold">Nacionalidad</label>
-                        <div class="selector-pais position-relative">
-                            <input type="text" class="form-control bg-light" id="nacionalidad_buscar"
-                                placeholder="Cargando países..." autocomplete="off" />
-                            <!-- Campo real que se envía / valida — se llena al elegir un país de la lista -->
-                            <input type="hidden" id="nacionalidad" name="nacionalidad" />
-                            <ul id="nacionalidad_lista" class="list-group selector-pais-lista shadow-sm"></ul>
-                        </div>
+                </div>
+                <div class="mb-3">
+                    <label for="semestre" class="form-label fw-bold">Semestre</label>
+                    <select class="form-select bg-light" id="semestre" name="semestre" required>
+                        <option value="">-- Selecciona tu semestre --</option>
+                        <option value="1">1er Semestre</option>
+                        <option value="2">2do Semestre</option>
+                        <option value="3">3er Semestre</option>
+                        <option value="4">4to Semestre</option>
+                        <option value="5">5to Semestre</option>
+                        <option value="6">6to Semestre</option>
+                    </select>
+                </div>
+                <!-- Selector personalizado de nacionalidad con búsqueda + bandera -->
+                <div class="mb-3">
+                    <label for="nacionalidad_buscar" class="form-label fw-bold">Nacionalidad</label>
+                    <div class="selector-pais position-relative">
+                        <input type="text" class="form-control bg-light" id="nacionalidad_buscar"
+                            placeholder="Cargando países..." autocomplete="off" />
+                        <input type="hidden" id="nacionalidad" name="nacionalidad" />
+                        <ul id="nacionalidad_lista" class="list-group selector-pais-lista shadow-sm"></ul>
                     </div>
-                    <div class="mb-3">
-                        <label for="correo_registro" class="form-label fw-bold">Correo Institucional</label>
-                        <input type="email" class="form-control bg-light" id="correo_registro" name="correo_registro"
-                            placeholder="correo@universidad.edu.ec" required />
+                </div>
+                <div class="mb-3">
+                    <label for="correo_registro" class="form-label fw-bold">Correo Institucional</label>
+                    <input type="email" class="form-control bg-light" id="correo_registro" name="correo_registro"
+                        placeholder="correo@universidad.edu.ec" required />
+                </div>
+                <div class="mb-3">
+                    <label for="contrasena_registro" class="form-label fw-bold">Contraseña</label>
+                    <input type="password" class="form-control bg-light" id="contrasena_registro"
+                        name="contrasena_registro" placeholder="Entre 8 y 16 caracteres"
+                        minlength="8" maxlength="16" required />
+                </div>
+                <div class="mb-4">
+                    <label for="confirmar_contrasena_registro" class="form-label fw-bold">Confirmar Contraseña</label>
+                    <input type="password" class="form-control bg-light" id="confirmar_contrasena_registro"
+                        name="confirmar_contrasena_registro" placeholder="Repite tu contraseña"
+                        minlength="8" maxlength="16" required />
+                </div>
+                <div class="mb-4">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="terminos_registro"
+                            name="terminos_registro" required />
+                        <label class="form-check-label" for="terminos_registro">
+                            Acepto los
+                            <a href="#" data-bs-toggle="modal" data-bs-target="#modalTerminos">
+                                términos y condiciones
+                            </a>
+                            de UniNotas
+                        </label>
                     </div>
-                    <div class="mb-3">
-                        <label for="contrasena_registro" class="form-label fw-bold">Contraseña</label>
-                        <input type="password" class="form-control bg-light" id="contrasena_registro"
-                            name="contrasena_registro" placeholder="Entre 8 y 16 caracteres" minlength="8"
-                            maxlength="16" required />
+                    <div id="terminos-feedback" class="text-danger small mt-1" style="display:none;">
+                        Debes aceptar los términos y condiciones para continuar.
                     </div>
-                    <div class="mb-4">
-                        <label for="confirmar_contrasena_registro" class="form-label fw-bold">Confirmar Contraseña</label>
-                        <input type="password" class="form-control bg-light" id="confirmar_contrasena_registro"
-                            name="confirmar_contrasena_registro" placeholder="Repite tu contraseña" minlength="8"
-                            maxlength="16" required />
-                    </div>
-                    <div class="mb-4">
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" id="terminos_registro"
-                                name="terminos_registro" required />
-                            <label class="form-check-label" for="terminos_registro">
-                                Acepto los
-                                <a href="#" data-bs-toggle="modal" data-bs-target="#modalTerminos">términos y condiciones</a>
-                                de UniNotas
-                            </label>
-                        </div>
-                        <div id="terminos-feedback" class="text-danger small mt-1" style="display:none;">
-                            Debes aceptar los términos y condiciones para continuar.
-                        </div>
-                    </div>
-                    <div class="d-grid mt-2">
-                        <button type="submit" class="btn btn-success btn-lg fw-bold">Registrarme</button>
-                    </div>
+                </div>
+                <div class="d-grid mt-2">
+                    <button type="submit" class="btn btn-success btn-lg fw-bold">Registrarme</button>
+                </div>
             </form>
             <p class="text-center mt-4">
                 <!-- AQUÍ: Eliminé el style en línea y le asigne la clase link-login -->
