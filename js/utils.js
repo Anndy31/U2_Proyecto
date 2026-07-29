@@ -70,9 +70,9 @@ function debounce(fn, espera = 300) {
     };
 }
 
-/** Valida formato básico de correo electrónico. */
+/** Valida que el correo sea del dominio institucional @espe.edu.ec */
 function esCorreoValido(correo = "") {
-    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(correo.trim());
+    return /^[a-zA-Z0-9._+-]+@espe\.edu\.ec$/.test(correo.trim());
 }
 
 /** Valida que la cédula tenga exactamente 10 dígitos numéricos. */
