@@ -84,7 +84,7 @@ function validarLogin(correo, password, campoCorreo, campoPassword) {
         _marcarInvalido(campoCorreo, "El correo es obligatorio.");
         valido = false;
     } else if (!UniUtils.esCorreoValido(correo)) {
-        _marcarInvalido(campoCorreo, "Ingresa un correo electrónico válido.");
+        _marcarInvalido(campoCorreo, "Ingresa un correo institucional válido (@espe.edu.ec).");
         valido = false;
     } else {
         _marcarValido(campoCorreo);
@@ -188,7 +188,7 @@ function validarRegistro(campos) {
 
     /* Correo */
     if (!UniUtils.esCorreoValido(correo.value)) {
-        _marcarInvalido(correo, "Ingresa un correo electrónico válido.");
+        _marcarInvalido(correo, "Ingresa un correo institucional válido (@espe.edu.ec).");
         valido = false;
     } else { _marcarValido(correo); }
 

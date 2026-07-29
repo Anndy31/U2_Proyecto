@@ -40,7 +40,7 @@ document.addEventListener("DOMContentLoaded", async () => {
             if (filtrados.length === 0) {
                 listaPaises.innerHTML = `<li class="list-group-item text-muted">Sin coincidencias</li>`;
             } else {
-                filtrados.slice(0, 60).forEach((pais) => {
+                filtrados.forEach((pais) => {//el pais 
                     const li = document.createElement("li");
                     li.className = "list-group-item list-group-item-action";
                     li.dataset.nombre = pais.nombre;
