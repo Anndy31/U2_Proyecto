@@ -30,3 +30,25 @@
 .img-contacto-wrapper:hover {
     transform: scale(1.05) rotate(2deg);
 }
+
+/* ── Selector de país (REST Countries) ── */
+.selector-pais-contacto #pais_lista {
+    display: none;
+    border: 1px solid #ced4da;
+    border-radius: 0 0 0.375rem 0.375rem;
+    background: #fff;
+}
+
+.selector-pais-contacto #pais_lista.mostrar {
+    display: block !important;
+}
+
+.selector-pais-contacto .list-group-item {
+    cursor: pointer;
+    font-size: 0.9rem;
+    padding: 0.45rem 0.75rem;
+}
+
+.selector-pais-contacto .list-group-item:hover {
+    background-color: #e9f0fb;
+}
